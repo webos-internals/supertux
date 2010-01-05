@@ -1,79 +1,14 @@
-bin_PROGRAMS = supertux
+SUBDIRS = src data
 
-supertux_SOURCES = \
-badguy.cpp \
-badguy.h \
-bitmask.cpp \
-bitmask.h \
-button.cpp \
-button.h \
-collision.cpp \
-collision.h \
-configfile.cpp \
-configfile.h \
-intro.cpp \
-intro.h \
-defines.h \
-gameloop.cpp \
-gameloop.h \
-globals.cpp \
-globals.h \
-high_scores.cpp \
-high_scores.h \
-level.cpp \
-level.h \
-leveleditor.cpp \
-leveleditor.h \
-lispreader.cpp \
-lispreader.h \
-menu.cpp \
-menu.h \
-particlesystem.cpp \
-particlesystem.h \
-physic.cpp \
-physic.h \
-player.cpp \
-player.h \
-scene.cpp \
-scene.h \
-screen.cpp \
-screen.h \
-setup.cpp \
-setup.h \
-sound.cpp \
-sound.h \
-special.cpp \
-special.h \
-supertux.cpp \
-text.cpp \
-text.h \
-texture.cpp \
-texture.h \
-timer.cpp \
-timer.h \
-title.cpp \
-title.h \
-type.cpp \
-type.h \
-world.cpp \
-world.h \
-worldmap.cpp \
-worldmap.h \
-tile.h \
-tile.cpp \
-mousecursor.cpp \
-mousecursor.h \
-resources.h \
-resources.cpp \
-gameobjs.h \
-gameobjs.cpp \
-sprite.h \
-sprite.cpp \
-sprite_manager.cpp \
-sprite_manager.h \
-music_manager.cpp \
-music_manager.h \
-musicref.cpp \
-musicref.h
+ACLOCAL_AMFLAGS = -I mk/autoconf
+AUTOMAKE_OPTIONS = 1.6 dist-bzip2
 
-# EOF #
+desktopdir = $(datadir)/applications
+desktop_DATA = supertux.desktop
+
+icondir = $(datadir)/pixmaps
+icon_DATA = supertux.png
+
+EXTRA_DIST = AUTHORS README COPYING INSTALL NEWS LEVELDESIGN ChangeLog \
+	     supertux.desktop supertux.png autogen.sh \
+	     $(wildcard mk/autoconf/*.m4)
