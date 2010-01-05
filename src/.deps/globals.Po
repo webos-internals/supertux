@@ -107,7 +107,7 @@ globals.o globals.o: globals.cpp globals.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_vector.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_bvector.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/vector.tcc \
-  timer.h type.h scene.h mousecursor.h
+  timer.h type.h scene.h mousecursor.h alt_keymap.h
 
 globals.h:
 
@@ -418,3 +418,5 @@ type.h:
 scene.h:
 
 mousecursor.h:
+
+alt_keymap.h:

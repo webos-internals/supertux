@@ -244,15 +244,19 @@ void Menu::get_controlfield_key_into_input(MenuItem *item)
 {
   switch(*item->int_p)
   {
+  case ALT_UP:
   case SDLK_UP:
     item->change_input("Up cursor");
     break;
+  case ALT_DOWN:
   case SDLK_DOWN:
     item->change_input("Down cursor");
     break;
+  case ALT_LEFT:
   case SDLK_LEFT:
     item->change_input("Left cursor");
     break;
+  case ALT_RIGHT:
   case SDLK_RIGHT:
     item->change_input("Right cursor");
     break;
@@ -321,6 +325,7 @@ Menu::Menu()
 
 void Menu::set_pos(int x, int y, float rw, float rh)
 {
+  printf("set pos\n");
   pos_x = x + (int)((float)get_width() * rw);
   pos_y = y + (int)((float)get_height() * rh);
 }
@@ -721,6 +726,7 @@ void
 Menu::event(SDL_Event& event)
 {
   SDLKey key;
+  static int now_time, last_time = 0;
   switch(event.type)
   {
   case SDL_KEYDOWN:
@@ -755,11 +761,14 @@ Menu::event(SDL_Event& event)
     }
 
 
+    printf("key = %d\n", key);
     switch(key)
     {
+    case ALT_UP:		/* Menu Up */
     case SDLK_UP:		/* Menu Up */
       menuaction = MENU_ACTION_UP;
       break;
+    case ALT_DOWN:		/* Menu Down */
     case SDLK_DOWN:		/* Menu Down */
       menuaction = MENU_ACTION_DOWN;
       break;
@@ -776,6 +785,7 @@ Menu::event(SDL_Event& event)
         mn_input_char = ' ';
         break;
       }
+    case ALT_RETURN:
     case SDLK_RETURN: /* Menu Hit */
       menuaction = MENU_ACTION_HIT;
       break;
@@ -809,10 +819,24 @@ Menu::event(SDL_Event& event)
   case  SDL_JOYAXISMOTION:
     if(event.jaxis.axis == joystick_keymap.y_axis)
     {
+      printf("y axis %d\n", event.jaxis.value);
+#if 0
       if (event.jaxis.value > 1024)
         menuaction = MENU_ACTION_DOWN;
       else if (event.jaxis.value < -1024)
         menuaction = MENU_ACTION_UP;
+#else
+      now_time = SDL_GetTicks();
+      if (!last_time || (now_time - last_time > 300)) {
+        if (event.jaxis.value > -3000)
+          menuaction = MENU_ACTION_UP;
+        else if (event.jaxis.value < -20000)
+          menuaction = MENU_ACTION_DOWN;
+        else
+          break;
+        last_time = SDL_GetTicks();
+      }
+#endif
     }
     break;
   case  SDL_JOYBUTTONDOWN:

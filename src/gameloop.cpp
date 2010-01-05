@@ -426,10 +426,17 @@ GameSession::process_events()
                     }
                   else if (event.jaxis.axis == joystick_keymap.y_axis)
                     {
+#if 0
                       if (event.jaxis.value > joystick_keymap.dead_zone)
                         tux.input.down = DOWN;
                       else if (event.jaxis.value < -joystick_keymap.dead_zone)
                         tux.input.down = UP;
+#else
+                      if (event.jaxis.value > joystick_keymap.dead_zone)
+                        tux.input.down = UP;
+                      else if (event.jaxis.value < -20000)
+                        tux.input.down = DOWN;
+#endif
                       else
                         tux.input.down = UP;
                     }
@@ -448,6 +455,12 @@ GameSession::process_events()
                     tux.input.up = UP;
                   else if (event.jbutton.button == joystick_keymap.b_button)
                     tux.input.fire = UP;
+                  break;
+                case SDL_MOUSEBUTTONDOWN:
+                  tux.input.fire = DOWN;
+                  break;
+                case SDL_MOUSEBUTTONUP:
+                  tux.input.fire = UP;
                   break;
 
                 default:

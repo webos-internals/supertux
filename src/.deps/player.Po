@@ -121,7 +121,7 @@ player.o player.o: player.cpp /usr/include/math.h /usr/include/features.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_map.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_multimap.h \
   world.h special.h player.h particlesystem.h gameobjs.h globals.h text.h \
-  menu.h mousecursor.h tile.h \
+  menu.h mousecursor.h alt_keymap.h tile.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/set \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_set.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_multiset.h \
@@ -506,6 +506,8 @@ text.h:
 menu.h:
 
 mousecursor.h:
+
+alt_keymap.h:
 
 tile.h:
 

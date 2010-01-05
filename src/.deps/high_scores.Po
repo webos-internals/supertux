@@ -106,8 +106,8 @@ high_scores.o high_scores.o: high_scores.cpp /usr/include/string.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_vector.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_bvector.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/vector.tcc \
-  timer.h type.h scene.h mousecursor.h high_scores.h setup.h sound.h \
-  defines.h /opt/pre_include/SDL/SDL_mixer.h \
+  timer.h type.h scene.h mousecursor.h alt_keymap.h high_scores.h setup.h \
+  sound.h defines.h /opt/pre_include/SDL/SDL_mixer.h \
   /opt/pre_include/SDL/SDL_types.h lispreader.h /usr/include/zlib.h \
   /usr/include/zconf.h /usr/include/zlibdefs.h
 
@@ -420,6 +420,8 @@ type.h:
 scene.h:
 
 mousecursor.h:
+
+alt_keymap.h:
 
 high_scores.h:
 

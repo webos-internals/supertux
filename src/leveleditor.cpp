@@ -1099,6 +1099,7 @@ void le_checkevents()
           case SDLK_ESCAPE:
             Menu::set_current(leveleditor_menu);
             break;
+          case ALT_LEFT:
           case SDLK_LEFT:
             if(fire == DOWN)
               cursor_x -= KEY_CURSOR_SPEED;
@@ -1109,6 +1110,7 @@ void le_checkevents()
               pos_x = cursor_x - MOUSE_LEFT_MARGIN;
 
             break;
+          case ALT_RIGHT:
           case SDLK_RIGHT:
             if(fire == DOWN)
               cursor_x += KEY_CURSOR_SPEED;
@@ -1119,6 +1121,7 @@ void le_checkevents()
               pos_x = cursor_x - MOUSE_RIGHT_MARGIN+32;
 
             break;
+          case ALT_UP:
           case SDLK_UP:
             if(fire == DOWN)
               cursor_y -= KEY_CURSOR_SPEED;
@@ -1128,6 +1131,7 @@ void le_checkevents()
             if(cursor_y < 0)
               cursor_y = 0;
             break;
+          case ALT_DOWN:
           case SDLK_DOWN:
             if(fire == DOWN)
               cursor_y += KEY_CURSOR_SPEED;

@@ -109,8 +109,9 @@ configfile.o configfile.o: configfile.cpp /usr/include/stdlib.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/list.tcc \
   screen.h timer.h type.h scene.h mousecursor.h sound.h defines.h \
   /opt/pre_include/SDL/SDL_mixer.h /opt/pre_include/SDL/SDL_types.h \
-  globals.h text.h lispreader.h /usr/include/zlib.h /usr/include/zconf.h \
-  /usr/include/zlibdefs.h player.h bitmask.h collision.h physic.h
+  globals.h text.h alt_keymap.h lispreader.h /usr/include/zlib.h \
+  /usr/include/zconf.h /usr/include/zlibdefs.h player.h bitmask.h \
+  collision.h physic.h
 
 /usr/include/stdlib.h:
 
@@ -433,6 +434,8 @@ defines.h:
 globals.h:
 
 text.h:
+
+alt_keymap.h:
 
 lispreader.h:
 

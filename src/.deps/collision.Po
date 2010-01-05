@@ -121,7 +121,7 @@ collision.o collision.o: collision.cpp defines.h collision.h type.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/set \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_set.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_multiset.h \
-  globals.h text.h menu.h mousecursor.h setup.h
+  globals.h text.h menu.h mousecursor.h alt_keymap.h setup.h
 
 defines.h:
 
@@ -492,5 +492,7 @@ text.h:
 menu.h:
 
 mousecursor.h:
+
+alt_keymap.h:
 
 setup.h:

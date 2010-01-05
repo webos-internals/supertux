@@ -1,0 +1,9 @@
+For now, I just did the bare necessary to get this cross compiled on my machine.
+I hand edited the Makefile so configure isn't going to work properly (yet) for cross compiling.
+
+In order to cross compile supertux for the Pre/Pixi(?) as is, you need the following:
+
+arm-none-linux-gnueabi-gcc tools in path
+CROSS_LIBC environment variable pointing to cross toolchain's libc/usr/lib
+/opt/pre_include/ must contain arm headers, mainly SDL/ from Palm's patched libsdl-1.2
+/opt/pre_lib/ must contain arm libraries, specifically SDL_image, SDL_mixer and SDL

@@ -51,6 +51,7 @@ void loadconfig(void)
 
   defaults();
 
+  printf("load config\n");
   /* override defaults from config file */
 
   file = opendata(config_filename, "r");
@@ -92,6 +93,7 @@ void loadconfig(void)
   else
     use_joystick = true;
 
+  printf("read joystick keymap\n");
   reader.read_int ("joystick-x", &joystick_keymap.x_axis);
   reader.read_int ("joystick-y", &joystick_keymap.y_axis);
   reader.read_int ("joystick-a", &joystick_keymap.a_button);
@@ -113,8 +115,10 @@ void saveconfig (void)
 {
   /* write settings to config file */
 
+  printf("save config\n");
   FILE * config = opendata(config_filename, "w");
 
+  printf("use joystick ? %d\n", use_joystick);
   if(config)
     {
       fprintf(config, "(supertux-config\n");

@@ -27,6 +27,7 @@
 #include "text.h"
 #include "menu.h"
 #include "mousecursor.h"
+#include "alt_keymap.h"
 
 extern std::string datadir;
 

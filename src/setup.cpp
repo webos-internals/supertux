@@ -805,9 +805,9 @@ void st_joystick_setup(void)
                     {
                       fprintf(stderr,
                               "Warning: "
-                              "Joystick does not have enough buttons!\n");
+                              "Joystick does not have enough buttons! (%d)\n", SDL_JoystickNumButtons(js));
 
-                      use_joystick = false;
+                      //use_joystick = false;
                     }
                 }
             }

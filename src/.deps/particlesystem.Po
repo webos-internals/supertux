@@ -136,8 +136,8 @@ particlesystem.o particlesystem.o: particlesystem.cpp particlesystem.h \
   /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h \
   /usr/include/bits/inf.h /usr/include/bits/nan.h \
   /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h globals.h \
-  text.h menu.h timer.h type.h scene.h mousecursor.h world.h special.h \
-  bitmask.h collision.h player.h sound.h defines.h \
+  text.h menu.h timer.h type.h scene.h mousecursor.h alt_keymap.h world.h \
+  special.h bitmask.h collision.h player.h sound.h defines.h \
   /opt/pre_include/SDL/SDL_mixer.h /opt/pre_include/SDL/SDL_types.h \
   physic.h badguy.h sprite.h lispreader.h /usr/include/zlib.h \
   /usr/include/zconf.h /usr/include/zlibdefs.h gameobjs.h level.h \
@@ -524,6 +524,8 @@ type.h:
 scene.h:
 
 mousecursor.h:
+
+alt_keymap.h:
 
 world.h:
 

@@ -29,10 +29,17 @@ JoystickKeymap::JoystickKeymap()
   b_button     = 1;
   start_button = 2;
   
+#if 0
   x_axis = 0;
   y_axis = 1;
     
   dead_zone = 4096;
+#else
+  x_axis = 1;
+  y_axis = 0;
+    
+  dead_zone = 3072;
+#endif
 }
 
 JoystickKeymap joystick_keymap;

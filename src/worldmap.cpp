@@ -578,9 +578,26 @@ WorldMap::get_input()
             case SDL_KEYDOWN:
               switch(event.key.keysym.sym)
                 {
+                  case ALT_UP:
+                  case SDLK_UP:
+                    input_direction = D_NORTH;
+                    break;
+                  case ALT_DOWN:
+                  case SDLK_DOWN:
+                    input_direction = D_SOUTH;
+                    break;
+                  case ALT_LEFT:
+                  case SDLK_LEFT:
+                    input_direction = D_WEST;
+                    break;
+                  case ALT_RIGHT:
+                  case SDLK_RIGHT:
+                    input_direction = D_EAST;
+                    break;
                 case SDLK_ESCAPE:
                   on_escape_press();
                   break;
+                case ALT_RETURN:
                 case SDLK_LCTRL:
                 case SDLK_RETURN:
                   enter_level = true;
@@ -590,6 +607,7 @@ WorldMap::get_input()
                 }
               break;
           
+#if 0
             case SDL_JOYAXISMOTION:
               if (event.jaxis.axis == joystick_keymap.x_axis)
                 {
@@ -606,6 +624,24 @@ WorldMap::get_input()
                     input_direction = D_NORTH;
                 }
               break;
+#else
+            case SDL_JOYAXISMOTION:
+              if (event.jaxis.axis == joystick_keymap.x_axis)
+                {
+                  if (event.jaxis.value < -10000)
+                    input_direction = D_WEST;
+                  else if (event.jaxis.value > 10000)
+                    input_direction = D_EAST;
+                }
+              else if (event.jaxis.axis == joystick_keymap.y_axis)
+                {
+                  if (event.jaxis.value > 10000)
+                    input_direction = D_NORTH;
+                  else if (event.jaxis.value < -10000)
+                    input_direction = D_SOUTH;
+                }
+              break;
+#endif
 
 	    case SDL_JOYHATMOTION:
 	      if (event.jhat.value == SDL_HAT_UP)

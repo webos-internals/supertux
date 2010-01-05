@@ -288,9 +288,11 @@ void display_text_file(const std::string& file, Surface* surface, float scroll_s
           case SDL_KEYDOWN:
             switch(event.key.keysym.sym)
               {
+              case ALT_UP:
               case SDLK_UP:
                 speed -= SPEED_INC;
                 break;
+              case ALT_DOWN:
               case SDLK_DOWN:
                 speed += SPEED_INC;
                 break;

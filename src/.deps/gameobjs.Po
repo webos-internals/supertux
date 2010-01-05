@@ -120,8 +120,8 @@ gameobjs.o gameobjs.o: gameobjs.cpp \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/map \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_map.h \
   /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/bits/stl_multimap.h \
-  globals.h text.h menu.h mousecursor.h setup.h gameloop.h level.h \
-  musicref.h music_manager.h
+  globals.h text.h menu.h mousecursor.h alt_keymap.h setup.h gameloop.h \
+  level.h musicref.h music_manager.h
 
 /source/webos-internals/build/toolchain/cs08q1armel/build/arm-2008q1/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.3/../../../../arm-none-linux-gnueabi/include/c++/4.2.3/algorithm:
 
@@ -484,6 +484,8 @@ text.h:
 menu.h:
 
 mousecursor.h:
+
+alt_keymap.h:
 
 setup.h:
 

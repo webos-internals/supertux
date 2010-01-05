@@ -1,0 +1,1762 @@
+
+configfile.h,59
+#define SUPERTUX_CONFIGFILE_HSUPERTUX_CONFIGFILE_H21,909
+
+musicref.h,147
+#define HEADER_MUSIC_RESOURCE_HHEADER_MUSIC_RESOURCE_H20,905
+class MusicRefMusicRef27,1070
+  MusicManager::MusicResource* music;music40,1297
+
+high_scores.h,61
+#define SUPERTUX_HIGH_SCORES_HSUPERTUX_HIGH_SCORES_H22,896
+
+music_manager.cpp,564
+MusicManager::MusicManager()MusicManager26,968
+MusicManager::~MusicManager()~MusicManager30,1044
+MusicManager::load_music(const std::string& file)load_music37,1128
+MusicManager::exists_music(const std::string& file)exists_music51,1451
+MusicManager::free_music(MusicResource* )free_music78,2139
+MusicManager::play_music(const MusicRef& musicref, int loops)play_music85,2323
+MusicManager::halt_music()halt_music104,2690
+MusicManager::enable_music(bool enable)enable_music120,2934
+MusicManager::MusicResource::~MusicResource()~MusicResource136,3195
+
+timer.h,203
+#define SUPERTUX_TIMER_HSUPERTUX_TIMER_H22,885
+class TimerTimer32,1130
+  unsigned int period;period35,1153
+  unsigned int time;time36,1176
+  unsigned int (*get_ticks) (void);  get_ticks37,1197
+
+globals.h,299
+#define SUPERTUX_GLOBALS_HSUPERTUX_GLOBALS_H23,1003
+struct JoystickKeymapJoystickKeymap33,1157
+  int a_button;a_button35,1181
+  int b_button;b_button36,1197
+  int start_button;start_button37,1213
+  int x_axis;x_axis39,1234
+  int y_axis;y_axis40,1248
+  int dead_zone;dead_zone42,1265
+
+level.h,1684
+#define SUPERTUX_LEVEL_HSUPERTUX_LEVEL_H22,902
+class LevelSubsetLevelSubset34,1170
+    std::string name;name44,1345
+    std::string title;title45,1367
+    std::string description;description46,1390
+    Surface* image;image47,1419
+    int levels;levels48,1439
+#define LEVEL_NAME_MAX LEVEL_NAME_MAX54,1513
+enum TileMapType {TileMapType57,1541
+ TM_BG,TM_BG58,1560
+ TM_IA,TM_IA59,1568
+ TM_FGTM_FG60,1576
+struct ResetPointResetPoint63,1588
+  int x;x65,1608
+  int y;y66,1617
+class Level Level69,1630
+  Surface* img_bkgd;img_bkgd72,1654
+  MusicRef level_song;level_song73,1675
+  MusicRef level_song_fast;level_song_fast74,1698
+  std::string name;name76,1727
+  std::string author;author77,1747
+  std::string song_title;song_title78,1769
+  std::string bkgd_image;bkgd_image79,1795
+  std::string particle_system;particle_system80,1821
+  std::vector<unsigned int> bg_tiles[15]; /* Tiles in the background */bg_tiles81,1852
+  std::vector<unsigned int> ia_tiles[15]; /* Tiles which can interact in the game (solids for example)*/ia_tiles82,1924
+  std::vector<unsigned int> fg_tiles[15]; /* Tiles in the foreground */fg_tiles83,2029
+  int time_left;time_left84,2101
+  Color bkgd_top;bkgd_top85,2118
+  Color bkgd_bottom;bkgd_bottom86,2136
+  int width;width87,2157
+  int bkgd_speed;bkgd_speed88,2170
+  int start_pos_x;start_pos_x89,2188
+  int start_pos_y;start_pos_y90,2207
+  float gravity;gravity91,2226
+  bool back_scrolling;back_scrolling92,2243
+  float hor_autoscroll_speed;hor_autoscroll_speed93,2266
+  std::vector<BadGuyData> badguy_data;badguy_data95,2297
+  std::vector<ResetPoint> reset_points;reset_points98,2413
+
+globals.cpp,1260
+std::string datadir;datadir24,967
+JoystickKeymap::JoystickKeymap()JoystickKeymap26,989
+JoystickKeymap joystick_keymap;joystick_keymap38,1144
+SDL_Surface * screen;screen40,1177
+Text* black_text;black_text41,1199
+Text* gold_text;gold_text42,1217
+Text* silver_text;silver_text43,1234
+Text* blue_text;blue_text44,1253
+Text* red_text;red_text45,1270
+Text* green_text;green_text46,1286
+Text* yellow_nums;yellow_nums47,1304
+Text* white_text;white_text48,1323
+Text* white_small_text;white_small_text49,1341
+Text* white_big_text;white_big_text50,1365
+MouseCursor * mouse_cursor;mouse_cursor52,1388
+bool use_gl;use_gl54,1417
+bool use_joystick;use_joystick55,1430
+bool use_fullscreen;use_fullscreen56,1449
+bool debug_mode;debug_mode57,1470
+bool show_fps;show_fps58,1487
+float game_speed = 1.0f;game_speed59,1502
+int joystick_num = 0;joystick_num61,1528
+char* level_startup_file = 0;level_startup_file62,1550
+bool launch_leveleditor_mode = false;launch_leveleditor_mode63,1580
+char *st_dir, *st_save_dir;st_dir66,1703
+char *st_dir, *st_save_dir;st_save_dir66,1703
+SDL_Joystick * js;js68,1732
+int wait_for_event(SDL_Event& event,unsigned int min_delay, unsigned int max_delay, bool empty_events)wait_for_event71,1831
+
+resources.h,57
+#define SUPERTUX_RESOURCES_HSUPERTUX_RESOURCES_H21,903
+
+menu.h,4071
+#define SUPERTUX_MENU_HSUPERTUX_MENU_H21,880
+enum MainMenuIDs {MainMenuIDs32,1045
+  MNID_STARTGAME,MNID_STARTGAME33,1064
+  MNID_CONTRIB,MNID_CONTRIB34,1082
+  MNID_OPTIONMENU,MNID_OPTIONMENU35,1098
+  MNID_LEVELEDITOR,MNID_LEVELEDITOR36,1117
+  MNID_CREDITS,MNID_CREDITS37,1137
+  MNID_QUITMAINMENUMNID_QUITMAINMENU38,1153
+enum OptionsMenuIDs {OptionsMenuIDs41,1179
+  MNID_OPENGL,MNID_OPENGL42,1201
+  MNID_FULLSCREEN,MNID_FULLSCREEN43,1216
+  MNID_SOUND,MNID_SOUND44,1235
+  MNID_MUSIC,MNID_MUSIC45,1249
+  MNID_SHOWFPSMNID_SHOWFPS46,1263
+enum GameMenuIDs {GameMenuIDs49,1284
+  MNID_CONTINUE,MNID_CONTINUE50,1303
+  MNID_ABORTLEVELMNID_ABORTLEVEL51,1320
+enum WorldMapMenuIDs {WorldMapMenuIDs54,1344
+  MNID_RETURNWORLDMAP,MNID_RETURNWORLDMAP55,1367
+  MNID_QUITWORLDMAPMNID_QUITWORLDMAP56,1390
+enum LevelEditorMainMenuIDs {LevelEditorMainMenuIDs59,1416
+  MNID_RETURNLEVELEDITOR,MNID_RETURNLEVELEDITOR60,1446
+  MNID_SUBSETSETTINGS,MNID_SUBSETSETTINGS61,1472
+  MNID_QUITLEVELEDITORMNID_QUITLEVELEDITOR62,1495
+enum LevelEditorSubsetSettingsIDs {LevelEditorSubsetSettingsIDs65,1526
+  MNID_SUBSETTITLE,MNID_SUBSETTITLE66,1562
+  MNID_SUBSETDESCRIPTION,MNID_SUBSETDESCRIPTION67,1582
+  MNID_SUBSETSAVECHANGESMNID_SUBSETSAVECHANGES68,1608
+enum LevelEditorSubsetNewIDs {LevelEditorSubsetNewIDs71,1641
+ MNID_SUBSETNAME,MNID_SUBSETNAME72,1672
+ MNID_CREATESUBSETMNID_CREATESUBSET73,1690
+enum LevelEditorSettingsMenuIDs {LevelEditorSettingsMenuIDs76,1713
+  MNID_NAME,MNID_NAME77,1747
+  MNID_AUTHOR,MNID_AUTHOR78,1760
+  MNID_SONG,MNID_SONG79,1775
+  MNID_BGIMG,MNID_BGIMG80,1788
+  MNID_PARTICLE,MNID_PARTICLE81,1802
+  MNID_LENGTH,MNID_LENGTH82,1819
+  MNID_TIME,MNID_TIME83,1834
+  MNID_GRAVITY,MNID_GRAVITY84,1847
+  MNID_BGSPEED,MNID_BGSPEED85,1863
+  MNID_TopRed,MNID_TopRed86,1879
+  MNID_TopGreen,MNID_TopGreen87,1894
+  MNID_TopBlue,MNID_TopBlue88,1911
+  MNID_BottomRed,MNID_BottomRed89,1927
+  MNID_BottomGreen,MNID_BottomGreen90,1945
+  MNID_BottomBlue,MNID_BottomBlue91,1965
+  MNID_APPLYMNID_APPLY92,1984
+enum MenuItemKind {MenuItemKind98,2069
+  MN_ACTION,MN_ACTION99,2089
+  MN_GOTO,MN_GOTO100,2102
+  MN_TOGGLE,MN_TOGGLE101,2113
+  MN_BACK,MN_BACK102,2126
+  MN_DEACTIVE,MN_DEACTIVE103,2137
+  MN_TEXTFIELD,MN_TEXTFIELD104,2152
+  MN_NUMFIELD,MN_NUMFIELD105,2168
+  MN_CONTROLFIELD,MN_CONTROLFIELD106,2183
+  MN_STRINGSELECT,MN_STRINGSELECT107,2202
+  MN_LABEL,MN_LABEL108,2221
+  MN_HL, /* horizontal line */MN_HL109,2233
+class MenuItemMenuItem114,2281
+  MenuItemKind kind;kind117,2306
+  int toggled;toggled118,2327
+  char *text;text119,2342
+  char *input;input120,2356
+  int *int_p;   // used for setting keys (can be used for more stuff...)int_p121,2371
+  int id;   // item idid122,2444
+  string_list_type* list;list123,2467
+  Menu* target_menu;target_menu124,2493
+  bool input_flickering;input_flickering133,2822
+  Timer input_flickering_timer;input_flickering_timer134,2847
+class MenuMenu137,2883
+  static std::vector<Menu*> last_menus;last_menus140,2907
+  static Menu* current_;current_141,2947
+  static Menu* current() { return current_; }current151,3230
+  enum MenuAction {MenuAction155,3318
+    MENU_ACTION_NONE = -1,MENU_ACTION_NONE156,3338
+    MENU_ACTION_UP,MENU_ACTION_UP157,3365
+    MENU_ACTION_DOWN,MENU_ACTION_DOWN158,3385
+    MENU_ACTION_LEFT,MENU_ACTION_LEFT159,3407
+    MENU_ACTION_RIGHT,MENU_ACTION_RIGHT160,3429
+    MENU_ACTION_HIT,MENU_ACTION_HIT161,3452
+    MENU_ACTION_INPUT,MENU_ACTION_INPUT162,3473
+    MENU_ACTION_REMOVEMENU_ACTION_REMOVE163,3496
+  int hit_item;hit_item168,3634
+  int pos_x;pos_x171,3716
+  int pos_y;pos_y172,3729
+  MenuAction menuaction;menuaction175,3807
+  int delete_character;delete_character178,3872
+  char mn_input_char;mn_input_char179,3896
+  Timer effect;effect182,3929
+  int arrange_left;arrange_left183,3945
+  int active_item;active_item184,3965
+  std::vector<MenuItem> item;item186,3985
+  MenuItem& get_item(int index) { return item[index]; }get_item203,4425
+
+high_scores.cpp,333
+const char * highscore_filename = "/st_highscore.dat";highscore_filename35,1102
+const char * highscore_filename = "/highscore";highscore_filename37,1163
+int hs_score;hs_score40,1219
+std::string hs_name; /* highscores global variables*/hs_name41,1233
+void load_hs(void)load_hs45,1327
+void save_hs(int score)save_hs80,2079
+
+player.h,2398
+#define SUPERTUX_PLAYER_HSUPERTUX_PLAYER_H21,902
+#define TUX_SAFE_TIME TUX_SAFE_TIME34,1102
+#define TUX_INVINCIBLE_TIME TUX_INVINCIBLE_TIME35,1129
+#define TUX_INVINCIBLE_TIME_WARNING TUX_INVINCIBLE_TIME_WARNING36,1163
+#define TIME_WARNING TIME_WARNING37,1204
+#define DISTROS_LIFEUP DISTROS_LIFEUP41,1302
+#define SCORE_BRICK SCORE_BRICK45,1345
+#define SCORE_DISTRO SCORE_DISTRO46,1367
+struct PlayerKeymapPlayerKeymap50,1411
+  int jump;jump53,1441
+  int duck;duck54,1453
+  int left;left55,1465
+  int right;right56,1477
+  int fire;fire57,1490
+struct player_input_typeplayer_input_type64,1556
+  int right;right66,1583
+  int left;left67,1596
+  int up;up68,1608
+  int old_up;old_up69,1618
+  int down;down70,1632
+  int fire;fire71,1644
+  int old_fire;old_fire72,1656
+struct PlayerSpritePlayerSprite86,1886
+  Sprite* stand_left;stand_left88,1908
+  Sprite* stand_right;stand_right89,1930
+  Sprite* walk_right;walk_right90,1953
+  Sprite* walk_left;walk_left91,1975
+  Sprite* jump_right;jump_right92,1996
+  Sprite* jump_left;jump_left93,2018
+  Sprite* kick_left;kick_left94,2039
+  Sprite* kick_right;kick_right95,2060
+  Sprite* skid_right;skid_right96,2082
+  Sprite* skid_left;skid_left97,2104
+  Sprite* grab_left;grab_left98,2125
+  Sprite* grab_right;grab_right99,2146
+  Sprite* duck_right;duck_right100,2168
+  Sprite* duck_left;duck_left101,2190
+class Player : public GameObjectPlayer108,2305
+  enum HurtMode { KILL, SHRINK };HurtMode111,2348
+  enum HurtMode { KILL, SHRINK };KILL111,2348
+  enum HurtMode { KILL, SHRINK };SHRINK111,2348
+  player_input_type  input;input113,2383
+  bool got_coffee;got_coffee114,2411
+  int size;size115,2430
+  bool duck;duck116,2442
+  bool holding_something;holding_something117,2455
+  DyingType dying;dying118,2481
+  Direction dir;dir120,2501
+  Direction old_dir;old_dir121,2518
+  bool jumping;jumping123,2540
+  bool can_jump;can_jump124,2556
+  int frame_;frame_125,2573
+  int frame_main;frame_main126,2587
+  base_type  previous_base;previous_base128,2606
+  Timer invincible_timer;invincible_timer129,2634
+  Timer skidding_timer;skidding_timer130,2660
+  Timer safe_timer;safe_timer131,2684
+  Timer frame_timer;frame_timer132,2704
+  Timer kick_timer;kick_timer133,2725
+  Physic physic;physic134,2745
+  std::string type() { return "Player";};type156,3255
+
+title.h,0
+
+leveleditor.h,311
+#define SUPERTUX_LEVELEDITOR_HSUPERTUX_LEVELEDITOR_H24,1009
+struct squaresquare26,1041
+  int x1, y1, x2, y2;x128,1057
+  int x1, y1, x2, y2;y128,1057
+  int x1, y1, x2, y2;x228,1057
+  int x1, y1, x2, y2;y228,1057
+  SM_CURSOR,SM_CURSOR33,1112
+  SM_SQUARE,SM_SQUARE34,1125
+  SM_NONESM_NONE35,1138
+
+text.h,519
+#define SUPERTUX_TEXT_HSUPERTUX_TEXT_H22,882
+   TEXT_TEXT,TEXT_TEXT32,1161
+   TEXT_NUMTEXT_NUM33,1175
+enum TextHAlign {TextHAlign36,1191
+   A_LEFT,A_LEFT37,1209
+   A_HMIDDLE,A_HMIDDLE38,1220
+   A_RIGHT,A_RIGHT39,1234
+enum TextVAlign {TextVAlign42,1250
+   A_TOP,A_TOP43,1268
+   A_VMIDDLE,A_VMIDDLE44,1278
+   A_BOTTOM,A_BOTTOM45,1292
+class TextText49,1325
+  Surface* chars;chars52,1347
+  Surface* shadow_chars;shadow_chars53,1365
+  int kind;kind54,1390
+  int w;w55,1402
+  int h;h56,1411
+
+button.h,1484
+#define SUPERTUX_BUTTON_HSUPERTUX_BUTTON_H22,885
+enum ButtonState {ButtonState27,952
+  BUTTON_NONE = -1,BUTTON_NONE28,971
+  BUTTON_CLICKED,BUTTON_CLICKED29,991
+  BUTTON_PRESSED,BUTTON_PRESSED30,1009
+  BUTTON_HOVER,BUTTON_HOVER31,1027
+  BUTTON_WHEELUP,BUTTON_WHEELUP32,1043
+  BUTTON_WHEELDOWN,BUTTON_WHEELDOWN33,1061
+  BUTTON_DEACTIVEBUTTON_DEACTIVE34,1081
+class ButtonButton39,1123
+  void set_active(bool active) { active ? state = BUTTON_NONE : state = BUTTON_DEACTIVE; };set_active49,1361
+  SDL_Rect get_pos() { return rect; }get_pos51,1509
+  int get_tag(){return tag; }get_tag52,1547
+  void set_game_object(GameObject* game_object_) { game_object = game_object_; }set_game_object53,1577
+  GameObject* get_game_object() { return game_object; };get_game_object54,1658
+  static Timer popup_timer;popup_timer57,1725
+  GameObject* game_object;game_object58,1753
+  std::vector<Surface*> icon;icon59,1780
+  std::string info;info60,1810
+  SDLKey shortcut;shortcut61,1830
+  SDL_Rect rect;rect62,1849
+  bool show_info;show_info63,1866
+  ButtonState state;state64,1884
+  int tag;tag65,1905
+class ButtonPanelButtonPanel68,1920
+  void set_last_clicked(unsigned int last)set_last_clicked80,2254
+  int bw, bh;bw84,2392
+  int bw, bh;bh84,2392
+  bool hlast;hlast85,2406
+  bool hidden;hidden86,2420
+  SDL_Rect rect;rect87,2435
+  std::vector<Button*> item;item88,2452
+  std::vector<Button*>::iterator last_clicked;last_clicked89,2481
+
+resources.cpp,529
+Surface* img_waves[3]; img_waves30,1071
+Surface* img_water;img_water31,1095
+Surface* img_pole;img_pole32,1115
+Surface* img_poletop;img_poletop33,1134
+Surface* img_flag[2];img_flag34,1156
+Surface* img_cloud[2][4];img_cloud35,1178
+MusicRef herring_song;herring_song37,1205
+MusicRef level_end_song;level_end_song38,1228
+SpriteManager* sprite_manager = 0;sprite_manager40,1254
+MusicManager* music_manager = 0;music_manager41,1289
+void loadshared()loadshared44,1377
+void unloadshared(void)unloadshared200,7507
+
+worldmap.cpp,1714
+#define DISPLAY_MAP_MESSAGE_TIME DISPLAY_MAP_MESSAGE_TIME34,1141
+namespace WorldMapNS {WorldMapNS36,1180
+Direction reverse_dir(Direction direction)reverse_dir38,1204
+direction_to_string(Direction direction)direction_to_string57,1507
+string_to_direction(const std::string& directory)string_to_direction75,1785
+TileManager::TileManager()TileManager89,2069
+TileManager::~TileManager()~TileManager168,4488
+TileManager::get(int i)get175,4619
+Tux::Tux(WorldMap* worldmap_)Tux183,4788
+Tux::~Tux()~Tux198,5267
+Tux::draw(const Point& offset)draw206,5366
+Tux::get_pos()get_pos228,5918
+Tux::stop()stop255,6318
+Tux::update(float delta)update263,6394
+Tile::Tile()Tile364,9941
+Tile::~Tile()~Tile368,9959
+WorldMap::WorldMap()WorldMap375,10074
+WorldMap::~WorldMap()~WorldMap401,10762
+WorldMap::set_map_file(std::string mapfile)set_map_file413,10933
+WorldMap::load_map()load_map419,11042
+void WorldMap::get_level_title(Levels::pointer level)get_level_title513,14746
+WorldMap::on_escape_press()on_escape_press548,15540
+WorldMap::get_input()get_input558,15701
+WorldMap::get_next_tile(Point pos, Direction direction)get_next_tile650,18377
+WorldMap::path_ok(Direction direction, Point old_pos, Point* new_pos)path_ok673,18713
+WorldMap::update(float delta)update715,19971
+WorldMap::at(Point p)at857,25267
+WorldMap::at_level()at_level868,25459
+WorldMap::draw(const Point& offset)draw882,25689
+WorldMap::draw_status()draw_status915,26535
+WorldMap::display()display971,28350
+WorldMap::savegame(const std::string& filename)savegame1026,29519
+WorldMap::loadgame(const std::string& filename)loadgame1063,30738
+WorldMap::loadmap(const std::string& filename)loadmap1143,32894
+
+timer.cpp,788
+unsigned int st_pause_ticks, st_pause_count;st_pause_ticks25,920
+unsigned int st_pause_ticks, st_pause_count;st_pause_count25,920
+unsigned int st_get_ticks(void)st_get_ticks27,966
+void st_pause_ticks_init(void)st_pause_ticks_init35,1166
+void st_pause_ticks_start(void)st_pause_ticks_start41,1246
+void st_pause_ticks_stop(void)st_pause_ticks_stop47,1346
+bool st_pause_ticks_started(void)st_pause_ticks_started56,1490
+Timer::Timer()Timer64,1585
+Timer::init(bool st_ticks)init70,1624
+Timer::start(unsigned int period_)start78,1749
+Timer::stop()stop85,1838
+Timer::check()check94,1933
+Timer::started()started106,2080
+Timer::get_left()get_left115,2164
+Timer::get_gone()get_gone121,2233
+Timer::fwrite(FILE* fi)fwrite127,2292
+Timer::fread(FILE* fi)fread146,2687
+
+texture.cpp,3555
+Surface::Surfaces Surface::surfaces;surfaces30,1025
+SurfaceData::SurfaceData(SDL_Surface* temp, int use_alpha_)SurfaceData32,1063
+SurfaceData::SurfaceData(const std::string& file_, int use_alpha_)SurfaceData50,1786
+SurfaceData::SurfaceData(const std::string& file_, int x_, int y_, int w_, int h_, int use_alpha_)SurfaceData54,1922
+SurfaceData::~SurfaceData()~SurfaceData59,2127
+SurfaceData::create()create65,2201
+SurfaceData::create_SurfaceSDL()create_SurfaceSDL78,2388
+SurfaceData::create_SurfaceOpenGL()create_SurfaceOpenGL93,2671
+static int power_of_two(int input)power_of_two111,3042
+Surface::Surface(SDL_Surface* surf, int use_alpha)Surface123,3174
+Surface::Surface(const std::string& file, int use_alpha)Surface135,3376
+Surface::Surface(const std::string& file, int x, int y, int w, int h, int use_alpha)Surface147,3584
+Surface::reload()reload160,3837
+Surface::~Surface()~Surface171,3953
+Surface::reload_all()reload_all191,4281
+Surface::debug_check()debug_check200,4414
+Surface::draw(float x, float y, Uint8 alpha, bool update)draw210,4628
+Surface::draw_bg(Uint8 alpha, bool update)draw_bg220,4779
+Surface::draw_part(float sx, float sy, float x, float y, float w, float h,  Uint8 alpha, bool update)draw_part230,4912
+Surface::draw_stretched(float x, float y, int w, int h, Uint8 alpha, bool update)draw_stretched240,5126
+Surface::resize(int w_, int h_)resize250,5317
+Surface* Surface::CaptureScreen()CaptureScreen261,5449
+sdl_surface_part_from_file(const std::string& file, int x, int y, int w, int h,  int use_alpha)sdl_surface_part_from_file309,6677
+sdl_surface_from_file(const std::string& file, int use_alpha)sdl_surface_from_file362,7971
+sdl_surface_from_sdl_surface(SDL_Surface* sdl_surf, int use_alpha)sdl_surface_from_sdl_surface389,8544
+SurfaceImpl::SurfaceImpl()SurfaceImpl427,9533
+SurfaceImpl::~SurfaceImpl()~SurfaceImpl430,9564
+SDL_Surface* SurfaceImpl::get_sdl_surface() constget_sdl_surface435,9629
+int SurfaceImpl::resize(int w_, int h_)resize440,9706
+SurfaceOpenGL::SurfaceOpenGL(SDL_Surface* surf, int use_alpha)SurfaceOpenGL455,9971
+SurfaceOpenGL::SurfaceOpenGL(const std::string& file, int use_alpha)SurfaceOpenGL464,10185
+SurfaceOpenGL::SurfaceOpenGL(const std::string& file, int x, int y, int w, int h, int use_alpha)SurfaceOpenGL473,10398
+SurfaceOpenGL::~SurfaceOpenGL()~SurfaceOpenGL482,10652
+SurfaceOpenGL::create_gl(SDL_Surface * surf, GLuint * tex)create_gl488,10730
+SurfaceOpenGL::draw(float x, float y, Uint8 alpha, bool update)draw538,12351
+SurfaceOpenGL::draw_bg(Uint8 alpha, bool update)draw_bg570,13068
+SurfaceOpenGL::draw_part(float sx, float sy, float x, float y, float w, float h, Uint8 alpha, bool update)draw_part599,13661
+SurfaceOpenGL::draw_stretched(float x, float y, int sw, int sh, Uint8 alpha, bool update)draw_stretched633,14442
+SurfaceSDL::SurfaceSDL(SDL_Surface* surf, int use_alpha)SurfaceSDL668,15221
+SurfaceSDL::SurfaceSDL(const std::string& file, int use_alpha)SurfaceSDL675,15390
+SurfaceSDL::SurfaceSDL(const std::string& file, int x, int y, int w, int h,  int use_alpha)SurfaceSDL682,15558
+SurfaceSDL::draw(float x, float y, Uint8 alpha, bool update)draw690,15776
+SurfaceSDL::draw_bg(Uint8 alpha, bool update)draw_bg737,17299
+SurfaceSDL::draw_part(float sx, float sy, float x, float y, float w, float h, Uint8 alpha, bool update)draw_part784,18813
+SurfaceSDL::draw_stretched(float x, float y, int sw, int sh, Uint8 alpha, bool update)draw_stretched836,20466
+SurfaceSDL::~SurfaceSDL()~SurfaceSDL867,21401
+
+gameloop.h,2044
+#define SUPERTUX_GAMELOOP_HSUPERTUX_GAMELOOP_H23,1007
+#define ST_GL_PLAY ST_GL_PLAY32,1134
+#define ST_GL_TEST ST_GL_TEST33,1155
+#define ST_GL_LOAD_GAME ST_GL_LOAD_GAME34,1176
+#define ST_GL_LOAD_LEVEL_FILE ST_GL_LOAD_LEVEL_FILE35,1202
+#define ST_GL_DEMO_GAME ST_GL_DEMO_GAME36,1235
+class GameSessionGameSession45,1494
+  Timer fps_timer;fps_timer48,1524
+  Timer frame_timer;frame_timer49,1543
+  Timer endsequence_timer;endsequence_timer50,1564
+  World* world;world51,1591
+  int st_gl_mode;st_gl_mode52,1607
+  int levelnb;levelnb53,1625
+  float fps_fps;fps_fps54,1640
+  unsigned int last_update_time;last_update_time55,1657
+  unsigned int update_time;update_time56,1690
+  int pause_menu_frame;pause_menu_frame57,1718
+  int debug_fps;debug_fps58,1742
+  enum EndSequenceState {EndSequenceState62,1860
+    NO_ENDSEQUENCE,NO_ENDSEQUENCE63,1886
+    ENDSEQUENCE_RUNNING, // tux is running rightENDSEQUENCE_RUNNING64,1906
+    ENDSEQUENCE_WAITING  // waiting for the end of the musicENDSEQUENCE_WAITING65,1955
+  EndSequenceState end_sequence;end_sequence67,2021
+  float last_x_pos;last_x_pos68,2054
+  bool game_pause;game_pause70,2075
+  std::string subset;subset73,2137
+  enum ExitStatus { ES_NONE, ES_LEVEL_FINISHED, ES_GAME_OVER, ES_LEVEL_ABORT };ExitStatus76,2169
+  enum ExitStatus { ES_NONE, ES_LEVEL_FINISHED, ES_GAME_OVER, ES_LEVEL_ABORT };ES_NONE76,2169
+  enum ExitStatus { ES_NONE, ES_LEVEL_FINISHED, ES_GAME_OVER, ES_LEVEL_ABORT };ES_LEVEL_FINISHED76,2169
+  enum ExitStatus { ES_NONE, ES_LEVEL_FINISHED, ES_GAME_OVER, ES_LEVEL_ABORT };ES_GAME_OVER76,2169
+  enum ExitStatus { ES_NONE, ES_LEVEL_FINISHED, ES_GAME_OVER, ES_LEVEL_ABORT };ES_LEVEL_ABORT76,2169
+  ExitStatus exit_status;exit_status78,2259
+  Timer time_left;time_left81,2295
+  Level* get_level() { return world->get_level(); }get_level92,2500
+  World* get_world() { return world; }get_world93,2552
+  static GameSession* current() { return current_; }current95,2592
+  static GameSession* current_;current_97,2655
+
+gameobjs.cpp,603
+BouncyDistro::init(float x, float y)init28,1040
+BouncyDistro::action(double frame_ratio)action36,1131
+BouncyDistro::draw()draw54,1593
+BrokenBrick::init(Tile* tile_, float x, float y, float xm, float ym)init62,1697
+BrokenBrick::action(double frame_ratio)action75,1898
+BrokenBrick::draw()draw92,2366
+BouncyBrick::init(float x, float y)init110,2691
+BouncyBrick::action(double frame_ratio)action120,2880
+BouncyBrick::draw()draw142,3428
+FloatingScore::init(float x, float y, int s)init179,4442
+FloatingScore::action(double frame_ratio)action189,4584
+FloatingScore::draw()draw205,5014
+
+gameobjs.h,933
+#define SUPERTUX_GAMEOBJS_HSUPERTUX_GAMEOBJS_H23,955
+#define NO_BOUNCE NO_BOUNCE31,1091
+#define BOUNCE BOUNCE32,1111
+class BouncyDistro : public GameObjectBouncyDistro34,1129
+  std::string type() { return "BouncyDistro"; };type41,1264
+#define BOUNCY_BRICK_MAX_OFFSET BOUNCY_BRICK_MAX_OFFSET46,1349
+#define BOUNCY_BRICK_SPEED BOUNCY_BRICK_SPEED47,1383
+class BrokenBrick : public GameObjectBrokenBrick51,1428
+  Timer timer;timer54,1477
+  Tile* tile;tile55,1492
+  std::string type() { return "BrokenBrick"; };type60,1620
+class BouncyBrick : public GameObjectBouncyBrick63,1672
+  float offset;offset66,1721
+  float offset_m;offset_m67,1737
+  int shape;shape68,1755
+  std::string type() { return "BouncyBrick"; };type73,1850
+class FloatingScore : public GameObjectFloatingScore76,1902
+  int value;value79,1953
+  Timer timer;timer80,1966
+  std::string type() { return "FloatingScore"; };type85,2072
+
+bitmask.h,636
+#define SUPERTUX_BITMASK_HSUPERTUX_BITMASK_H65,2468
+#  define INLINE INLINE72,2591
+#   define INLINE INLINE75,2644
+#   define INLINEINLINE77,2679
+#define BITW BITW82,2722
+#define BITW_LEN BITW_LEN83,2753
+#define BITW_MASK BITW_MASK84,2773
+#define BITN(BITN85,2794
+struct bitmaskbitmask87,2828
+  int w,h;w89,2845
+  int w,h;h89,2845
+  BITW *bits;bits90,2856
+static INLINE int bitmask_getbit(const bitmask *m,int x,int y) bitmask_getbit102,3128
+static INLINE void bitmask_setbit(bitmask *m,int x,int y)bitmask_setbit109,3289
+static INLINE void bitmask_clearbit(bitmask *m,int x,int y)bitmask_clearbit116,3440
+
+type.h,721
+#define SUPERTUX_TYPE_HSUPERTUX_TYPE_H22,881
+struct base_typebase_type30,997
+  float x;x32,1016
+  float y;y33,1027
+  float xm;xm34,1038
+  float ym;ym35,1050
+  float width;width36,1062
+  float height;height37,1077
+class GameObjectGameObject42,1144
+  GameObject() {};GameObject46,1172
+  virtual ~GameObject() {};~GameObject47,1191
+  void draw_on_screen(float x = -1, float y = -1)draw_on_screen52,1410
+void move_to(float x, float y) { base.x = x; base.y = y; };move_to68,1719
+  base_type base;base70,1780
+  base_type old_base;old_base71,1798
+struct string_list_typestring_list_type74,1824
+  int num_items;num_items76,1850
+  int active_item;active_item77,1867
+  char **item;item78,1886
+
+sound.cpp,736
+bool use_sound = true;    /* handle sound on/off menu and command-line option */use_sound27,1050
+bool use_music = true;    /* handle music on/off menu and command-line option */use_music28,1131
+bool audio_device = true; /* != 0: available and initialized */audio_device29,1212
+char * soundfilenames[NUM_SOUNDS] = {soundfilenames31,1277
+Mix_Chunk * sounds[NUM_SOUNDS];sounds57,2599
+int open_audio (int frequency, Uint16 format, int channels, int chunksize)open_audio61,2669
+void close_audio( void )close_audio83,3265
+Mix_Chunk* load_sound(const std::string& file)load_sound95,3477
+void play_sound(Mix_Chunk * snd, enum Sound_Speaker whichSpeaker)play_sound110,3742
+void free_chunk(Mix_Chunk *chunk)free_chunk133,4348
+
+intro.h,0
+
+title.cpp,971
+static Surface* bkg_title;bkg_title55,1520
+static Surface* logo;logo56,1547
+static Surface* img_choose_subset;img_choose_subset57,1569
+static bool walking;walking59,1605
+static Timer random_timer;random_timer60,1626
+static int frame;frame62,1654
+static unsigned int last_update_time;last_update_time63,1672
+static unsigned int update_time;update_time64,1710
+static std::vector<LevelSubset*> contrib_subsets;contrib_subsets66,1744
+static std::string current_contrib_subset;current_contrib_subset67,1794
+static string_list_type worldmap_list;worldmap_list69,1838
+void free_contrib_menu()free_contrib_menu71,1878
+void generate_contrib_menu()generate_contrib_menu81,2086
+void check_contrib_menu()check_contrib_menu112,2961
+void check_contrib_subset_menu()check_contrib_subset_menu162,4446
+void draw_background()draw_background178,4890
+void draw_demo(GameSession* session, double frame_ratio)draw_demo185,4978
+void title(void)title234,6109
+
+world.cpp,1839
+Surface* img_distro[4];img_distro36,1218
+World* World::current_ = 0;current_38,1243
+World::World(const std::string& filename)World40,1272
+World::World(const std::string& subset, int level_nr)World61,1668
+World::apply_bonuses()apply_bonuses83,2089
+World::~World()~World104,2500
+World::set_defaults()set_defaults133,3265
+World::activate_bad_guys()activate_bad_guys148,3485
+World::activate_particle_systems()activate_particle_systems159,3718
+World::draw()draw176,4110
+World::action(double frame_ratio)action261,6316
+#define X_SPACE X_SPACE315,7905
+#define CHANGE_DIR_SCROLL_SPEED CHANGE_DIR_SCROLL_SPEED317,7978
+void World::scrolling(double frame_ratio)scrolling320,8066
+World::collision_handler()collision_handler396,10717
+World::add_score(float x, float y, int s)add_score482,13371
+World::add_bouncy_distro(float x, float y)add_bouncy_distro492,13595
+World::add_broken_brick(Tile* tile, float x, float y)add_broken_brick500,13783
+World::add_broken_brick_piece(Tile* tile, float x, float y, float xm, float ym)add_broken_brick_piece510,14054
+World::add_bouncy_brick(float x, float y)add_bouncy_brick518,14288
+World::add_bad_guy(float x, float y, BadGuyKind kind, bool stay_on_platform)add_bad_guy526,14472
+World::add_upgrade(float x, float y, Direction dir, UpgradeKind kind)add_upgrade534,14665
+World::add_bullet(float x, float y, float xm, Direction dir)add_bullet542,14838
+World::play_music(int musictype)play_music555,15102
+World::get_music_type()get_music_type575,15553
+World::trybreakbrick(float x, float y, bool small, Direction col_side)trybreakbrick582,15631
+World::tryemptybox(float x, float y, Direction col_side)tryemptybox637,17194
+World::trygrabdistro(float x, float y, int bounciness)trygrabdistro685,18482
+World::trybumpbadguy(float x, float y)trybumpbadguy706,19026
+
+tile.cpp,532
+TileManager* TileManager::instance_  = 0;instance_25,919
+std::set<TileGroup>* TileManager::tilegroups_  = 0;tilegroups_26,961
+Tile::Tile()Tile28,1014
+Tile::~Tile()~Tile32,1032
+TileManager::TileManager()TileManager46,1426
+TileManager::~TileManager()~TileManager52,1553
+void TileManager::load_tileset(std::string filename)load_tileset59,1750
+Tile::draw(float x, float y, unsigned int c, Uint8 alpha)draw186,6192
+Tile::draw_stretched(float x, float y, int w, int h, unsigned int c, Uint8 alpha)draw_stretched210,6786
+
+mousecursor.cpp,398
+MouseCursor* MouseCursor::current_ = 0;current_23,921
+MouseCursor::MouseCursor(std::string cursor_file, int frames) : mid_x(0), mid_y(0)MouseCursor25,962
+MouseCursor::~MouseCursor()~MouseCursor39,1254
+int MouseCursor::state()state46,1335
+void MouseCursor::set_state(int nstate)set_state51,1385
+void MouseCursor::set_mid(int x, int y)set_mid56,1452
+void MouseCursor::draw()draw62,1523
+
+mousecursor.h,829
+#define SUPERTUX_MOUSECURSOR_HSUPERTUX_MOUSECURSOR_H21,904
+#define MC_FRAME_PERIOD MC_FRAME_PERIOD27,995
+#define MC_STATES_NB MC_STATES_NB29,1034
+  MC_NORMAL,MC_NORMAL31,1064
+  MC_CLICK,MC_CLICK32,1077
+  MC_LINKMC_LINK33,1089
+class MouseCursorMouseCursor36,1103
+    static MouseCursor* current() { return current_; };current46,1314
+    static void set_current(MouseCursor* pcursor) {  current_ = pcursor; };set_current47,1370
+    int mid_x, mid_y;mid_x50,1464
+    int mid_x, mid_y;mid_y50,1464
+    static MouseCursor* current_;    current_51,1486
+    int state_before_click;state_before_click52,1524
+    int cur_state;cur_state53,1552
+    int cur_frame, tot_frames;cur_frame54,1571
+    int cur_frame, tot_frames;tot_frames54,1571
+    Surface* cursor;cursor55,1602
+    Timer timer;timer56,1623
+
+lispreader.cpp,5709
+#define TOKEN_ERROR TOKEN_ERROR33,1083
+#define TOKEN_EOF TOKEN_EOF34,1124
+#define TOKEN_OPEN_PAREN TOKEN_OPEN_PAREN35,1164
+#define TOKEN_CLOSE_PAREN TOKEN_CLOSE_PAREN36,1204
+#define TOKEN_SYMBOL TOKEN_SYMBOL37,1244
+#define TOKEN_STRING TOKEN_STRING38,1284
+#define TOKEN_INTEGER TOKEN_INTEGER39,1324
+#define TOKEN_REAL TOKEN_REAL40,1364
+#define TOKEN_PATTERN_OPEN_PAREN TOKEN_PATTERN_OPEN_PAREN41,1404
+#define TOKEN_DOT TOKEN_DOT42,1444
+#define TOKEN_TRUE TOKEN_TRUE43,1484
+#define TOKEN_FALSE TOKEN_FALSE44,1524
+#define MAX_TOKEN_LENGTH MAX_TOKEN_LENGTH47,1567
+static char token_string[MAX_TOKEN_LENGTH + 1] = "";token_string49,1608
+static int token_length = 0;token_length50,1661
+static lisp_object_t end_marker = { LISP_TYPE_EOF, {{0, 0}} };end_marker52,1691
+static lisp_object_t error_object = { LISP_TYPE_PARSE_ERROR , {{0,0}}  };error_object53,1754
+static lisp_object_t close_paren_marker = { LISP_TYPE_PARSE_ERROR , {{0,0}}  };close_paren_marker54,1828
+static lisp_object_t dot_marker = { LISP_TYPE_PARSE_ERROR , {{0,0}} };dot_marker55,1908
+_token_clear (void)_token_clear58,1992
+_token_append (char c)_token_append65,2075
+_next_char (lisp_stream_t *stream)_next_char74,2231
+_unget_char (char c, lisp_stream_t *stream)_unget_char101,2697
+_scan (lisp_stream_t *stream)_scan123,3068
+lisp_object_alloc (int type)lisp_object_alloc275,6334
+lisp_stream_init_file (lisp_stream_t *stream, FILE *file)lisp_stream_init_file285,6489
+lisp_stream_init_string (lisp_stream_t *stream, char *buf)lisp_stream_init_string294,6645
+lisp_stream_init_any (lisp_stream_t *stream, void *data,lisp_stream_init_any304,6837
+lisp_make_integer (int value)lisp_make_integer319,7236
+lisp_make_real (float value)lisp_make_real329,7389
+lisp_make_symbol (const char *value)lisp_make_symbol339,7535
+lisp_make_string (const char *value)lisp_make_string349,7701
+lisp_make_cons (lisp_object_t *car, lisp_object_t *cdr)lisp_make_cons359,7867
+lisp_make_boolean (int value)lisp_make_boolean370,8067
+lisp_make_pattern_cons (lisp_object_t *car, lisp_object_t *cdr)lisp_make_pattern_cons380,8235
+lisp_make_pattern_var (int type, int index, lisp_object_t *sub)lisp_make_pattern_var391,8458
+lisp_read (lisp_stream_t *in)lisp_read403,8713
+lisp_free (lisp_object_t *obj)lisp_free501,11115
+lisp_read_from_string (const char *buf)lisp_read_from_string584,12980
+_compile_pattern (lisp_object_t **obj, int *index)_compile_pattern593,13138
+lisp_compile_pattern (lisp_object_t **obj, int *num_subs)lisp_compile_pattern679,15099
+_match_pattern_var (lisp_object_t *pattern, lisp_object_t *obj, lisp_object_t **vars)_match_pattern_var695,15415
+_match_pattern (lisp_object_t *pattern, lisp_object_t *obj, lisp_object_t **vars)_match_pattern763,16880
+lisp_match_pattern (lisp_object_t *pattern, lisp_object_t *obj, lisp_object_t **vars, int num_subs)lisp_match_pattern810,17918
+lisp_match_string (const char *pattern_string, lisp_object_t *obj, lisp_object_t **vars)lisp_match_string822,18166
+lisp_type (lisp_object_t *obj)lisp_type848,18726
+lisp_integer (lisp_object_t *obj)lisp_integer856,18828
+lisp_symbol (lisp_object_t *obj)lisp_symbol864,18941
+lisp_string (lisp_object_t *obj)lisp_string872,19051
+lisp_boolean (lisp_object_t *obj)lisp_boolean880,19159
+lisp_real (lisp_object_t *obj)lisp_real888,19272
+lisp_car (lisp_object_t *obj)lisp_car898,19484
+lisp_cdr (lisp_object_t *obj)lisp_cdr906,19639
+lisp_cxr (lisp_object_t *obj, const char *x)lisp_cxr914,19794
+lisp_list_length (lisp_object_t *obj)lisp_list_length930,20039
+lisp_list_nth_cdr (lisp_object_t *obj, int index)lisp_list_nth_cdr946,20293
+lisp_list_nth (lisp_object_t *obj, int index)lisp_list_nth961,20561
+lisp_dump (lisp_object_t *obj, FILE *out)lisp_dump971,20704
+LispReader::LispReader (lisp_object_t* l)LispReader1053,22371
+LispReader::search_for(const char* name)search_for1062,22550
+LispReader::read_int (const char* name, int* i)read_int1091,23256
+LispReader::read_lisp(const char* name, lisp_object_t** b)read_lisp1108,23649
+LispReader::read_float (const char* name, float* f)read_float1121,23843
+LispReader::read_string_vector (const char* name, std::vector<std::string>* vec)read_string_vector1135,24183
+LispReader::read_int_vector (const char* name, std::vector<int>* vec)read_int_vector1153,24632
+LispReader::read_char_vector (const char* name, std::vector<char>* vec)read_char_vector1171,25073
+LispReader::read_string (const char* name, std::string* str)read_string1187,25395
+LispReader::read_bool (const char* name, bool* b)read_bool1201,25719
+LispWriter::LispWriter (const char* name)LispWriter1214,26024
+LispWriter::append (lisp_object_t* obj)append1220,26124
+LispWriter::make_list3 (lisp_object_t* a, lisp_object_t* b, lisp_object_t* c)make_list31226,26212
+LispWriter::make_list2 (lisp_object_t* a, lisp_object_t* b)make_list21232,26389
+LispWriter::write_float (const char* name, float f)write_float1238,26519
+LispWriter::write_int (const char* name, int i)write_int1245,26669
+LispWriter::write_string (const char* name, const char* str)write_string1252,26818
+LispWriter::write_symbol (const char* name, const char* symname)write_symbol1259,26981
+LispWriter::write_lisp_obj(const char* name, lisp_object_t* lst)write_lisp_obj1266,27152
+LispWriter::write_boolean (const char* name, bool b)write_boolean1273,27301
+LispWriter::create_lisp ()create_lisp1280,27465
+lisp_object_t* lisp_read_from_gzfile(const char* filename)lisp_read_from_gzfile1306,27973
+bool has_suffix(const char* data, const char* suffix)has_suffix1350,29003
+lisp_object_t* lisp_read_from_file(const std::string& filename)lisp_read_from_file1367,29321
+
+badguy.h,2138
+#define SUPERTUX_BADGUY_HSUPERTUX_BADGUY_H24,1009
+enum BadGuyKind {BadGuyKind37,1238
+  BAD_MRICEBLOCK,BAD_MRICEBLOCK38,1256
+  BAD_JUMPY,BAD_JUMPY39,1274
+  BAD_MRBOMB,BAD_MRBOMB40,1287
+  BAD_BOMB,BAD_BOMB41,1301
+  BAD_STALACTITE,BAD_STALACTITE42,1313
+  BAD_FLAME,BAD_FLAME43,1331
+  BAD_FISH,BAD_FISH44,1344
+  BAD_BOUNCINGSNOWBALL,BAD_BOUNCINGSNOWBALL45,1356
+  BAD_FLYINGSNOWBALL,BAD_FLYINGSNOWBALL46,1380
+  BAD_SPIKY,BAD_SPIKY47,1402
+  BAD_SNOWBALL,BAD_SNOWBALL48,1415
+  NUM_BadGuyKindsNUM_BadGuyKinds49,1431
+class BadGuy : public GameObjectBadGuy60,1647
+  enum BadGuyMode {BadGuyMode64,1711
+    NORMAL=0,NORMAL65,1731
+    FLAT,FLAT66,1745
+    KICK,KICK67,1755
+    HELD,HELD68,1765
+    JUMPY_JUMP,JUMPY_JUMP70,1776
+    BOMB_TICKING,BOMB_TICKING72,1793
+    BOMB_EXPLODE,BOMB_EXPLODE73,1811
+    STALACTITE_SHAKING,STALACTITE_SHAKING75,1830
+    STALACTITE_FALL,STALACTITE_FALL76,1854
+    FISH_WAIT,FISH_WAIT78,1876
+    FLY_UP,FLY_UP80,1892
+    FLY_DOWNFLY_DOWN81,1904
+  DyingType  dying;dying84,1930
+  BadGuyKind kind;kind85,1950
+  BadGuyMode mode;mode86,1969
+  bool stay_on_platform;stay_on_platform91,2194
+  Direction dir;dir93,2220
+  bool removable;removable96,2247
+  bool seen;seen97,2265
+  int squishcount; /// number of times this enemy was squichedsquishcount98,2278
+  Timer timer;timer99,2341
+  Physic physic;physic100,2356
+  Sprite*   sprite_left;sprite_left102,2374
+  Sprite*   sprite_right;sprite_right103,2399
+  int animation_offset;animation_offset105,2426
+  std::string type() { return "BadGuy"; };type112,2578
+  bool is_removable() const { return removable; }is_removable129,3123
+struct BadGuyDataBadGuyData165,4392
+  BadGuyKind kind;kind167,4412
+  int x;x168,4431
+  int y;y169,4440
+  bool stay_on_platform;stay_on_platform170,4449
+  BadGuyData(BadGuy* pbadguy) : kind(pbadguy->kind), x((int)pbadguy->base.x), y((int)pbadguy->base.y), stay_on_platform(pbadguy->stay_on_platform)  {};BadGuyData172,4475
+  BadGuyData(BadGuyKind kind_, int x_, int y_, bool stay_on_platform_) BadGuyData173,4627
+  BadGuyData()BadGuyData176,4772
+
+particlesystem.cpp,623
+ParticleSystem::ParticleSystem()ParticleSystem29,1014
+ParticleSystem::~ParticleSystem()~ParticleSystem35,1115
+void ParticleSystem::draw(float scrollx, float scrolly, int layer)draw43,1279
+SnowParticleSystem::SnowParticleSystem()SnowParticleSystem71,2269
+SnowParticleSystem::~SnowParticleSystem()~SnowParticleSystem97,3231
+void SnowParticleSystem::simulate(float elapsed_time)simulate103,3327
+CloudParticleSystem::CloudParticleSystem()CloudParticleSystem116,3766
+CloudParticleSystem::~CloudParticleSystem()~CloudParticleSystem135,4323
+void CloudParticleSystem::simulate(float elapsed_time)simulate140,4393
+
+texture.h,1126
+#define SUPERTUX_TEXTURE_HSUPERTUX_TEXTURE_H22,889
+class SurfaceData SurfaceData40,1249
+  enum ConstructorType { LOAD, LOAD_PART, SURFACE };ConstructorType43,1278
+  enum ConstructorType { LOAD, LOAD_PART, SURFACE };LOAD43,1278
+  enum ConstructorType { LOAD, LOAD_PART, SURFACE };LOAD_PART43,1278
+  enum ConstructorType { LOAD, LOAD_PART, SURFACE };SURFACE43,1278
+  ConstructorType type;type44,1331
+  SDL_Surface* surface;surface45,1355
+  std::string file;file46,1379
+  int use_alpha;use_alpha47,1399
+  int x;x48,1416
+  int y;y49,1425
+  int w;w50,1434
+  int h;h51,1443
+class SurfaceSurface65,1903
+  SurfaceData data;data68,1927
+  SurfaceImpl* impl;impl69,1947
+  int w; w70,1968
+  int h;h71,1978
+  typedef std::list<Surface*> Surfaces;Surfaces73,1990
+  static Surfaces surfaces;surfaces74,2030
+class SurfaceImplSurfaceImpl99,3002
+  SDL_Surface* sdl_surface;sdl_surface102,3033
+  int w;w105,3070
+  int h;h106,3079
+class SurfaceSDL : public SurfaceImplSurfaceSDL122,3645
+class SurfaceOpenGL : public SurfaceImplSurfaceOpenGL137,4203
+  unsigned gl_texture;gl_texture140,4254
+
+lispreader.h,2767
+#define __LISPREADER_H____LISPREADER_H__25,945
+#define LISP_STREAM_FILE LISP_STREAM_FILE32,1045
+#define LISP_STREAM_STRING LISP_STREAM_STRING33,1078
+#define LISP_STREAM_ANY LISP_STREAM_ANY34,1111
+#define LISP_TYPE_INTERNAL LISP_TYPE_INTERNAL36,1145
+#define LISP_TYPE_PARSE_ERROR LISP_TYPE_PARSE_ERROR37,1180
+#define LISP_TYPE_EOF LISP_TYPE_EOF38,1215
+#define LISP_TYPE_NIL LISP_TYPE_NIL39,1250
+#define LISP_TYPE_SYMBOL LISP_TYPE_SYMBOL40,1284
+#define LISP_TYPE_INTEGER LISP_TYPE_INTEGER41,1318
+#define LISP_TYPE_STRING LISP_TYPE_STRING42,1352
+#define LISP_TYPE_REAL LISP_TYPE_REAL43,1386
+#define LISP_TYPE_CONS LISP_TYPE_CONS44,1420
+#define LISP_TYPE_PATTERN_CONS LISP_TYPE_PATTERN_CONS45,1454
+#define LISP_TYPE_BOOLEAN LISP_TYPE_BOOLEAN46,1488
+#define LISP_TYPE_PATTERN_VAR LISP_TYPE_PATTERN_VAR47,1522
+#define LISP_PATTERN_ANY LISP_PATTERN_ANY49,1557
+#define LISP_PATTERN_SYMBOL LISP_PATTERN_SYMBOL50,1591
+#define LISP_PATTERN_STRING LISP_PATTERN_STRING51,1625
+#define LISP_PATTERN_INTEGER LISP_PATTERN_INTEGER52,1659
+#define LISP_PATTERN_REAL LISP_PATTERN_REAL53,1693
+#define LISP_PATTERN_BOOLEAN LISP_PATTERN_BOOLEAN54,1727
+#define LISP_PATTERN_LIST LISP_PATTERN_LIST55,1761
+#define LISP_PATTERN_OR LISP_PATTERN_OR56,1795
+    int type;type60,1849
+        FILE *file;file64,1882
+            char *buf;buf67,1929
+            int pos;pos68,1952
+        string;string70,1985
+            void *data;data73,2028
+            int (*next_char) (void *data);next_char74,2052
+            void (*unget_char) (char c, void *data);unget_char75,2095
+        any;any77,2160
+      } v;v78,2173
+lisp_stream_t;lisp_stream_t80,2188
+typedef struct _lisp_object_t lisp_object_t;lisp_object_t82,2204
+struct _lisp_object_t_lisp_object_t83,2249
+    int type;type85,2275
+            struct _lisp_object_t *car;car91,2335
+            struct _lisp_object_t *cdr;cdr92,2375
+        cons;cons94,2427
+        char *string;string96,2442
+        int integer;integer97,2464
+        float real;real98,2485
+            int type;type102,2533
+            int index;index103,2555
+            struct _lisp_object_t *sub;sub104,2578
+        pattern;pattern106,2630
+      } v;v107,2647
+#define lisp_nil(lisp_nil151,4503
+#define lisp_nil_p(lisp_nil_p153,4553
+#define lisp_integer_p(lisp_integer_p154,4593
+#define lisp_real_p(lisp_real_p155,4662
+#define lisp_symbol_p(lisp_symbol_p156,4728
+#define lisp_string_p(lisp_string_p157,4796
+#define lisp_cons_p(lisp_cons_p158,4864
+#define lisp_boolean_p(lisp_boolean_p159,4930
+class LispReaderLispReader162,5007
+    lisp_object_t* lst;lst165,5039
+class LispWriterLispWriter183,5697
+    std::vector<lisp_object_t*> lisp_objs;lisp_objs186,5729
+
+bitmask.cpp,769
+#define MIN(MIN30,1134
+bitmask *bitmask_create(int w, int h)bitmask_create32,1176
+bitmask *bitmask_create_SDL(SDL_Surface* surf)bitmask_create_SDL49,1504
+void bitmask_free(bitmask *m)bitmask_free83,2163
+int bitmask_overlap(const bitmask *a,const bitmask *b,int xoffset, int yoffset)bitmask_overlap89,2226
+static INLINE int firstsetbit(BITW w)firstsetbit175,4979
+int bitmask_overlap_pos(const bitmask *a,const bitmask *b,int xoffset, int yoffset, int *x, int *y)bitmask_overlap_pos187,5198
+static INLINE int bitcount(unsigned long n)bitcount312,9443
+int bitmask_overlap_area(const bitmask *a,const bitmask *b,int xoffset, int yoffset)bitmask_overlap_area323,9808
+void bitmask_draw(bitmask *a,bitmask *b,int xoffset, int yoffset)bitmask_draw402,12283
+
+configfile.cpp,264
+const char * config_filename = "/st_config.dat";config_filename29,1045
+const char * config_filename = "/config";config_filename31,1100
+static void defaults ()defaults34,1150
+void loadconfig(void)loadconfig48,1351
+void saveconfig (void)saveconfig114,3115
+
+physic.h,245
+#define SUPERTUX_PHYSIC_HSUPERTUX_PHYSIC_H22,887
+class PhysicPhysic27,1031
+    float ax, ay;ax68,2079
+    float ax, ay;ay68,2079
+    float vx, vy;vx70,2138
+    float vx, vy;vy70,2138
+    bool gravity_enabled;gravity_enabled72,2211
+
+supertux.cpp,47
+int main(int argc, char * argv[])main37,1158
+
+worldmap.h,4345
+#define SUPERTUX_WORLDMAP_HSUPERTUX_WORLDMAP_H21,883
+namespace WorldMapNS {WorldMapNS28,972
+struct PointPoint30,996
+  Point() : x(0), y(0) {}Point32,1011
+  Point(const Point& pos)Point34,1038
+  Point& operator=(const Point& pos)operator =37,1093
+  Point(int x_, int y_)Point42,1182
+  int x;x45,1229
+  int y;y46,1238
+  BOTH_WAYS,BOTH_WAYS51,1279
+  NORTH_SOUTH_WAY,NORTH_SOUTH_WAY52,1292
+  SOUTH_NORTH_WAY,SOUTH_NORTH_WAY53,1311
+  EAST_WEST_WAY,EAST_WEST_WAY54,1330
+  WEST_EAST_WAYWEST_EAST_WAY55,1347
+class TileTile58,1369
+  Surface* sprite;sprite64,1414
+  bool north;north67,1497
+  bool east;east68,1511
+  bool south;south69,1524
+  bool west;west70,1538
+  int one_way;one_way73,1574
+  bool stop;stop76,1634
+  bool auto_walk;auto_walk80,1759
+class TileManagerTileManager83,1781
+  typedef std::vector<Tile*> Tiles;Tiles86,1810
+  Tiles tiles;tiles87,1846
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };Direction96,1930
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };D_NONE96,1930
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };D_WEST96,1930
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };D_EAST96,1930
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };D_NORTH96,1930
+enum Direction { D_NONE, D_WEST, D_EAST, D_NORTH, D_SOUTH };D_SOUTH96,1930
+class TuxTux104,2147
+  Direction back_direction;back_direction107,2167
+  WorldMap* worldmap;worldmap109,2204
+  Surface* largetux_sprite;largetux_sprite110,2226
+  Surface* firetux_sprite;firetux_sprite111,2254
+  Surface* smalltux_sprite;smalltux_sprite112,2281
+  Direction input_direction;input_direction114,2310
+  Direction direction;direction115,2339
+  Point tile_pos;tile_pos116,2362
+  float offset;offset119,2485
+  bool  moving;moving120,2501
+  void set_direction(Direction d) { input_direction = d; }set_direction130,2646
+  bool is_moving() const { return moving; }is_moving132,2706
+  Point get_tile_pos() const { return tile_pos; } get_tile_pos134,2769
+  void  set_tile_pos(Point p) { tile_pos = p; } set_tile_pos135,2820
+class WorldMapWorldMap139,2880
+  Tux* tux;tux142,2906
+  bool quit;quit144,2919
+  Surface* level_sprite;level_sprite146,2933
+  Surface* leveldot_green;leveldot_green147,2958
+  Surface* leveldot_red;leveldot_red148,2985
+  Surface* leveldot_teleporter;leveldot_teleporter149,3010
+  std::string name;name151,3043
+  std::string music;music152,3063
+  std::vector<int> tilemap;tilemap154,3085
+  int width;width155,3113
+  int height;height156,3126
+  int start_x;start_x158,3143
+  int start_y;start_y159,3158
+  TileManager* tile_manager;tile_manager161,3174
+  struct LevelLevel164,3212
+    int x;x166,3231
+    int y;y167,3242
+    std::string name;name168,3253
+    std::string title;title169,3275
+    bool solved;solved170,3298
+    std::string extro_filename;extro_filename174,3411
+    std::string display_map_message;display_map_message177,3504
+    bool passive_message;passive_message178,3541
+	 int teleport_dest_x;teleport_dest_x181,3591
+	 int teleport_dest_y;teleport_dest_y182,3614
+	 std::string teleport_message;teleport_message183,3637
+	 bool invisible_teleporter;invisible_teleporter184,3669
+    bool auto_path;auto_path187,3770
+    bool apply_action_north;apply_action_north190,3871
+    bool apply_action_east;apply_action_east191,3900
+    bool apply_action_south;apply_action_south192,3928
+    bool apply_action_west;apply_action_west193,3957
+    bool north;north196,4039
+    bool east;east197,4055
+    bool south;south198,4070
+    bool west;west199,4086
+  Timer passive_message_timer;passive_message_timer203,4164
+  std::string passive_message;passive_message204,4195
+  typedef std::vector<Level> Levels;Levels207,4236
+  Levels levels;levels208,4273
+  MusicRef song;song210,4291
+  Direction input_direction;input_direction212,4309
+  bool enter_level;enter_level213,4338
+  Point offset;offset215,4359
+  std::string savegame_file;savegame_file216,4375
+  std::string map_file;map_file217,4404
+  const std::string& get_world_title() constget_world_title253,5219
+  const int& get_start_x() constget_start_x256,5288
+  const int& get_start_y() constget_start_y259,5348
+  void set_levels_as_solved()set_levels_as_solved264,5527
+
+button.cpp,910
+Timer Button::popup_timer;popup_timer28,982
+Button::Button(std::string icon_file, std::string ninfo, SDLKey nshortcut, int x, int y, int mw, int mh)Button30,1010
+void Button::add_icon(std::string icon_file, int mw, int mh)add_icon50,1372
+void Button::draw()draw75,1966
+Button::~Button()~Button111,3090
+void Button::event(SDL_Event &event)event119,3250
+int Button::get_state()get_state184,4772
+ButtonPanel::ButtonPanel(int x, int y, int w, int h)ButtonPanel200,5003
+Button* ButtonPanel::event(SDL_Event& event)event212,5174
+ButtonPanel::~ButtonPanel()~ButtonPanel235,5586
+void ButtonPanel::draw()draw244,5741
+void ButtonPanel::additem(Button* pbutton, int tag)additem261,6141
+void ButtonPanel::set_button_size(int w, int h)set_button_size280,6573
+Button* ButtonPanel::manipulate_button(int i)manipulate_button286,6646
+void ButtonPanel::highlight_last(bool b)highlight_last294,6785
+
+special.cpp,996
+Sprite* img_bullet;img_bullet34,1147
+Sprite* img_star;img_star35,1167
+Sprite* img_growup;img_growup36,1185
+Sprite* img_iceflower;img_iceflower37,1205
+Sprite* img_1up;img_1up38,1228
+#define GROWUP_SPEED GROWUP_SPEED40,1246
+#define BULLET_STARTING_YM BULLET_STARTING_YM42,1273
+#define BULLET_XM BULLET_XM43,1302
+Bullet::init(float x, float y, float xm, Direction dir)init46,1328
+Bullet::remove_me()remove_me69,1673
+Bullet::action(double frame_ratio)action84,1948
+Bullet::draw()draw121,2700
+Bullet::collision(int c_object)collision131,2867
+Upgrade::init(float x_, float y_, Direction dir_, UpgradeKind kind_)init139,2960
+Upgrade::remove_me()remove_me167,3602
+Upgrade::action(double frame_ratio)action182,3885
+Upgrade::draw()draw248,5780
+Upgrade::bump(Player* )bump294,6982
+Upgrade::collision(void* p_c_object, int c_object, CollisionType type)collision309,7312
+void load_special_gfx()load_special_gfx360,8601
+void free_special_gfx()free_special_gfx370,8876
+
+sprite_manager.h,208
+#define HEADER_SPRITE_MANAGER_HXXHEADER_SPRITE_MANAGER_HXX21,895
+class SpriteManagerSpriteManager26,966
+  typedef std::map<std::string, Sprite*> Sprites;Sprites29,998
+  Sprites sprites;sprites30,1048
+
+sprite.h,391
+#define HEADER_SPRITE_HXXHEADER_SPRITE_HXX21,879
+class SpriteSprite28,988
+  std::string name;name31,1013
+  int x_hotspot;x_hotspot33,1034
+  int y_hotspot;y_hotspot34,1051
+  float fps;fps37,1096
+  float frame_delay;frame_delay41,1208
+  float time;time43,1230
+  std::vector<Surface*> surfaces;surfaces45,1245
+  std::string get_name() const { return name; } get_name62,1697
+
+musicref.cpp,274
+MusicRef::MusicRef()MusicRef22,963
+MusicRef::MusicRef(MusicManager::MusicResource* newmusic)MusicRef27,1002
+MusicRef::~MusicRef()~MusicRef34,1120
+MusicRef::MusicRef(const MusicRef& other)MusicRef43,1258
+MusicRef::operator =(const MusicRef& other)operator =51,1373
+
+leveleditor.cpp,5404
+#define KEY_CURSOR_SPEED KEY_CURSOR_SPEED49,1458
+#define KEY_CURSOR_FASTSPEED KEY_CURSOR_FASTSPEED50,1486
+#define PAGE_CURSOR_SPEED PAGE_CURSOR_SPEED53,1556
+#define MOUSE_LEFT_MARGIN MOUSE_LEFT_MARGIN55,1589
+#define MOUSE_RIGHT_MARGIN MOUSE_RIGHT_MARGIN56,1618
+#define MOUSE_POS_SPEED MOUSE_POS_SPEED59,1754
+#define SELECT_W SELECT_W62,1793
+#define SELECT_CLR SELECT_CLR63,1844
+struct TileOrObjectTileOrObject85,2434
+  TileOrObject() : tile(0), obj(NULL) { is_tile = true; };TileOrObject87,2456
+  void Tile(unsigned int set_to) { tile = set_to; is_tile = true; }Tile89,2516
+  void Object(GameObject* pobj) { obj = pobj; is_tile = false; }Object90,2584
+  bool IsTile() { return is_tile; };IsTile92,2677
+  bool IsObject() { return !is_tile; };IsObject94,2748
+  void Init() { tile = 0; obj = NULL; is_tile = true; };Init97,2790
+  bool is_tile; //true for tile (false for object)is_tile99,2848
+  unsigned int tile;tile100,2899
+  GameObject* obj;obj101,2920
+static string_list_type level_subsets;level_subsets105,2971
+static bool le_level_changed;  /* if changes, ask for saving, when quiting*/le_level_changed106,3010
+static bool show_minimap;show_minimap107,3087
+static bool show_selections;show_selections108,3113
+static bool le_help_shown;le_help_shown109,3142
+static int pos_x, cursor_x, cursor_y, fire;pos_x110,3169
+static int pos_x, cursor_x, cursor_y, fire;cursor_x110,3169
+static int pos_x, cursor_x, cursor_y, fire;cursor_y110,3169
+static int pos_x, cursor_x, cursor_y, fire;fire110,3169
+static int le_level;le_level111,3213
+static World* le_world;le_world112,3234
+static LevelSubset* le_level_subset;le_level_subset113,3258
+static int le_show_grid;le_show_grid114,3295
+static int le_frame;le_frame115,3320
+static Surface* le_selection;le_selection116,3341
+static int done;done117,3371
+static TileOrObject le_current;le_current118,3388
+static bool le_mouse_pressed[2];le_mouse_pressed119,3420
+static bool le_mouse_clicked[2];le_mouse_clicked120,3453
+static Button* le_save_level_bt;le_save_level_bt121,3486
+static Button* le_exit_bt;le_exit_bt122,3519
+static Button* le_test_level_bt;le_test_level_bt123,3546
+static Button* le_next_level_bt;le_next_level_bt124,3579
+static Button* le_previous_level_bt;le_previous_level_bt125,3612
+static Button* le_move_right_bt;le_move_right_bt126,3649
+static Button* le_move_left_bt;le_move_left_bt127,3682
+static Button* le_rubber_bt;le_rubber_bt128,3714
+static Button* le_select_mode_one_bt;le_select_mode_one_bt129,3743
+static Button* le_select_mode_two_bt;le_select_mode_two_bt130,3781
+static Button* le_settings_bt;le_settings_bt131,3819
+static Button* le_tilegroup_bt;le_tilegroup_bt132,3850
+static Button* le_objects_bt;le_objects_bt133,3882
+static Button* le_object_select_bt;le_object_select_bt134,3912
+static Button* le_object_properties_bt;le_object_properties_bt135,3948
+static ButtonPanel* le_tilemap_panel;le_tilemap_panel136,3988
+static Menu* leveleditor_menu;leveleditor_menu137,4026
+static Menu* subset_load_menu;subset_load_menu138,4057
+static Menu* subset_new_menu;subset_new_menu139,4088
+static Menu* subset_settings_menu;subset_settings_menu140,4118
+static Menu* level_settings_menu;level_settings_menu141,4153
+static Menu* select_tilegroup_menu;select_tilegroup_menu142,4187
+static Menu* select_objects_menu;select_objects_menu143,4223
+static Timer select_tilegroup_menu_effect;select_tilegroup_menu_effect144,4257
+static Timer select_objects_menu_effect;select_objects_menu_effect145,4300
+static Timer display_level_info;display_level_info146,4341
+typedef std::map<std::string, ButtonPanel*> ButtonPanelMap;ButtonPanelMap147,4374
+static ButtonPanelMap tilegroups_map;tilegroups_map148,4434
+static ButtonPanelMap objects_map;objects_map149,4472
+static std::string cur_tilegroup;cur_tilegroup150,4507
+static std::string cur_objects;cur_objects151,4541
+static MouseCursor* mouse_select_object;mouse_select_object152,4573
+static GameObject* selected_game_object;selected_game_object153,4614
+static square selection;selection155,4656
+static int le_selection_mode;le_selection_mode156,4681
+static SDL_Event event;event157,4711
+TileMapType active_tm;active_tm158,4735
+int leveleditor(char* filename)leveleditor160,4759
+int le_load_level_subset(char *filename)le_load_level_subset371,9976
+void le_init_menus()le_init_menus385,10333
+int le_init()le_init516,16347
+void update_level_settings_menu()update_level_settings_menu588,19530
+void update_subset_settings_menu()update_subset_settings_menu632,22277
+void apply_level_settings_menu()apply_level_settings_menu638,22479
+void save_subset_settings_menu()save_subset_settings_menu676,24453
+void le_unload_level()le_unload_level683,24652
+void le_goto_level(int levelnb)le_goto_level701,25029
+void le_quit(void)le_quit709,25199
+void le_drawminimap()le_drawminimap755,26297
+void le_drawinterface()le_drawinterface790,27663
+void le_drawlevel()le_drawlevel906,31403
+void le_change_object_properties(GameObject *pobj)le_change_object_properties986,33940
+void le_checkevents()le_checkevents1065,36336
+void le_highlight_selection()le_highlight_selection1583,51098
+void le_change(float x, float y, int tm, unsigned int c)le_change1616,51589
+void le_testlevel()le_testlevel1707,53737
+void le_showhelp()le_showhelp1725,54144
+
+intro.cpp,37
+void draw_intro()draw_intro36,1140
+
+world.h,1286
+#define SUPERTUX_WORLD_HSUPERTUX_WORLD_H23,999
+class WorldWorld38,1331
+  typedef std::list<BadGuy*> BadGuys;BadGuys41,1354
+  BadGuys bad_guys_to_add;bad_guys_to_add42,1392
+  Level* level;level43,1419
+  Player tux;tux44,1435
+  Timer scrolling_timer;scrolling_timer46,1450
+  int distro_counter;distro_counter48,1476
+  bool counting_distros;counting_distros49,1498
+  int currentmusic;currentmusic50,1523
+  static World* current_;current_52,1544
+  BadGuys bad_guys;bad_guys54,1578
+  std::vector<BouncyDistro*> bouncy_distros;bouncy_distros55,1598
+  std::vector<BrokenBrick*>  broken_bricks;broken_bricks56,1643
+  std::vector<BouncyBrick*>  bouncy_bricks;bouncy_bricks57,1687
+  std::vector<FloatingScore*> floating_scores;floating_scores58,1731
+  std::vector<Upgrade> upgrades;upgrades60,1779
+  std::vector<Bullet> bullets;bullets61,1812
+  typedef std::vector<ParticleSystem*> ParticleSystems;ParticleSystems62,1843
+  ParticleSystems particle_systems;particle_systems63,1899
+  static World* current() { return current_; }current66,1944
+  static void set_current(World* w) { current_ = w; }set_current67,1991
+  World() {};World71,2134
+  Level*  get_level() { return level; }get_level74,2163
+  Player* get_tux() { return &tux; }get_tux75,2203
+
+music_manager.h,419
+#define HEADER_MUSIC_MANAGER_HHEADER_MUSIC_MANAGER_H21,985
+class MusicManagerMusicManager32,1189
+  class MusicResourceMusicResource48,1510
+    MusicManager* manager;manager53,1569
+    Mix_Music* music;music54,1596
+    int refcount;refcount55,1618
+  std::map<std::string, MusicResource> musics;musics60,1684
+  MusicResource* current_music;current_music61,1731
+  bool music_enabled;music_enabled62,1763
+
+gameloop.cpp,974
+GameSession* GameSession::current_ = 0;current_58,1641
+GameSession::GameSession(const std::string& subset_, int levelnb_, int mode)GameSession60,1682
+GameSession::restart_level()restart_level76,2025
+GameSession::~GameSession()~GameSession144,3809
+GameSession::levelintro(void)levelintro150,3863
+GameSession::start_timers()start_timers179,4537
+GameSession::on_escape_press()on_escape_press187,4687
+GameSession::process_events()process_events204,4944
+GameSession::check_end_conditions()check_end_conditions462,13633
+GameSession::action(double frame_ratio)action517,15323
+GameSession::draw()draw527,15484
+GameSession::process_menu()process_menu553,16113
+GameSession::run()run585,16773
+void bumpbrick(float x, float y)bumpbrick695,19752
+GameSession::drawstatus()drawstatus705,19976
+GameSession::drawendscreen()drawendscreen752,21168
+GameSession::drawresultscreen(void)drawresultscreen776,21719
+std::string slotinfo(int slot)slotinfo799,22271
+
+screen.cpp,875
+#define SGN(SGN41,1239
+#define ABS(ABS42,1286
+void clearscreen(int r, int g, int b)clearscreen46,1351
+void drawgradient(Color top_clr, Color bot_clr)drawgradient67,1678
+void fade(const std::string& surface, int seconds, bool fade_out)fade105,2734
+void fade(Surface *surface, int seconds, bool fade_out)fade112,2908
+void putpixel(SDL_Surface *surface, int x, int y, Uint32 pixel)putpixel144,3572
+void drawpixel(int x, int y, Uint32 pixel)drawpixel182,4367
+void drawline(int x1, int y1, int x2, int y2, int r, int g, int b, int a)drawline205,4933
+void fillrect(float x, float y, float w, float h, int r, int g, int b, int a)fillrect271,6453
+void updatescreen(void)updatescreen344,7936
+void flipscreen(void)flipscreen352,8092
+void fadeout()fadeout360,8187
+void update_rect(SDL_Surface *scr, Sint32 x, Sint32 y, Sint32 w, Sint32 h)update_rect367,8331
+
+text.cpp,1039
+Text::Text(const std::string& file, int kind_, int w_, int h_)Text28,982
+Text::~Text()~Text73,1780
+Text::draw(const  char* text, int x, int y, int shadowsize, int update)draw80,1843
+Text::draw_chars(Surface* pchars,const  char* text, int x, int y, int update)draw_chars92,2100
+Text::draw_align(const char* text, int x, int y,draw_align139,3699
+Text::drawf(const  char* text, int x, int y,drawf176,4390
+Text::erasetext(const  char * text, int x, int y, Surface * ptexture, int update, int shadowsize)erasetext198,4976
+Text::erasecenteredtext(const  char * text, int y, Surface * ptexture, int update, int shadowsize)erasecenteredtext220,5436
+#define MAX_VEL MAX_VEL228,5665
+#define SPEED_INC SPEED_INC229,5688
+#define SCROLL SCROLL230,5713
+#define ITEMS_SPACE ITEMS_SPACE231,5736
+void display_text_file(const std::string& file, const std::string& surface, float scroll_speed)display_text_file233,5759
+void display_text_file(const std::string& file, Surface* surface, float scroll_speed)display_text_file240,5983
+
+setup.h,49
+#define SUPERTUX_SETUP_HSUPERTUX_SETUP_H21,904
+
+level.cpp,1321
+LevelSubset::LevelSubset()LevelSubset39,1206
+LevelSubset::~LevelSubset()~LevelSubset44,1264
+void LevelSubset::create(const std::string& subset_name)create49,1313
+void LevelSubset::parse (lisp_object_t* cursor)parse61,1622
+void LevelSubset::load(char *subset)load93,2426
+void LevelSubset::save()save166,4252
+Level::Level()Level202,5074
+Level::Level(const std::string& subset, int level)Level208,5129
+Level::Level(const std::string& filename)Level215,5296
+Level::~Level()~Level222,5441
+Level::init_defaults()init_defaults228,5486
+Level::load(const std::string& subset, int level)load270,6461
+Level::load(const std::string& filename)load283,6806
+Level::save(const std::string& subset, int level)save542,14280
+Level::cleanup()cleanup644,17139
+Level::load_gfx()load_gfx663,17403
+void Level::load_image(Surface** ptexture, string theme,const  char * file, int use_alpha)load_image682,17865
+Level::change_size (int new_width)change_size695,18265
+Level::change(float x, float y, int tm, unsigned int c)change711,18536
+Level::load_song()load_song734,18963
+Level::get_level_music()get_level_music757,19656
+Level::get_level_music_fast()get_level_music_fast763,19716
+Level::gettileid(float x, float y) constgettileid769,19791
+Level::get_tile_at(int x, int y) constget_tile_at786,20037
+
+special.h,704
+#define SUPERTUX_SPECIAL_HSUPERTUX_SPECIAL_H21,899
+enum UpgradeKind {UpgradeKind33,1090
+  UPGRADE_GROWUP,UPGRADE_GROWUP34,1109
+  UPGRADE_ICEFLOWER,UPGRADE_ICEFLOWER35,1127
+  UPGRADE_HERRING,UPGRADE_HERRING36,1148
+  UPGRADE_1UPUPGRADE_1UP37,1167
+class Upgrade : public GameObjectUpgrade43,1236
+  UpgradeKind kind;kind46,1280
+  Direction  dir;dir47,1300
+  Physic physic;physic48,1318
+  std::string type() { return "Upgrade"; };type54,1520
+  ~Upgrade() {};~Upgrade56,1567
+class Bullet : public GameObjectBullet68,1826
+  int life_count;life_count71,1870
+  base_type base;base72,1888
+  base_type old_base;old_base73,1906
+  std::string type() { return "Bullet"; };type79,2069
+
+particlesystem.h,953
+#define SUPERTUX_PARTICLESYSTEM_HSUPERTUX_PARTICLESYSTEM_H21,900
+class ParticleSystemParticleSystem41,1745
+    class ParticleParticle52,1954
+        virtual ~Particle()~Particle55,1991
+        float x, y;x58,2032
+        float x, y;y58,2032
+        int layer;layer59,2052
+        Surface* texture;texture60,2071
+    std::vector<Particle*> particles;particles63,2109
+    float virtual_width, virtual_height;virtual_width64,2147
+    float virtual_width, virtual_height;virtual_height64,2147
+class SnowParticleSystem : public ParticleSystemSnowParticleSystem67,2192
+    class SnowParticle : public ParticleSnowParticle76,2374
+        float speed;speed79,2433
+    Surface* snowimages[3];snowimages82,2466
+class CloudParticleSystem : public ParticleSystemCloudParticleSystem85,2498
+    class CloudParticle : public ParticleCloudParticle94,2683
+        float speed;speed97,2743
+    Surface* cloudimage;cloudimage100,2776
+
+setup.cpp,1666
+#define mkdir(mkdir59,1564
+#undef DATA_PREFIXDATA_PREFIX61,1649
+#define DATA_PREFIX DATA_PREFIX62,1668
+#define SCREEN_W SCREEN_W67,1814
+#define SCREEN_H SCREEN_H68,1835
+int faccessible(const char *filename)faccessible76,2000
+int fwriteable(const char *filename)fwriteable93,2284
+int fcreatedir(const char* relative_dir)fcreatedir106,2556
+FILE * opendata(const char * rel_filename, const char * mode)opendata128,2954
+string_list_type dsubdirs(const char *rel_path,const  char* expected_file)dsubdirs161,3825
+string_list_type dfiles(const char *rel_path, const  char* glob, const  char* exception_str)dfiles231,5836
+void free_strings(char **strings, int num)free_strings296,7658
+void st_directory_setup(void)st_directory_setup305,7836
+void st_menu(void)st_menu373,9740
+void update_load_save_game_menu(Menu* pmenu)update_load_save_game_menu483,14687
+bool process_load_game_menu()process_load_game_menu495,15001
+void process_options_menu(void)process_options_menu533,15879
+void st_general_setup(void)st_general_setup573,16872
+void st_general_free(void)st_general_free613,18597
+void st_video_setup(void)st_video_setup647,19221
+void st_video_setup_sdl(void)st_video_setup_sdl671,19733
+void st_video_setup_gl(void)st_video_setup_gl701,20615
+void st_joystick_setup(void)st_joystick_setup757,22074
+void st_audio_setup(void)st_audio_setup818,23655
+void st_shutdown(void)st_shutdown876,25257
+void st_abort(const std::string& reason, const std::string& details)st_abort885,25354
+void seticon(void)seticon894,25557
+void parseargs(int argc, char * argv[])parseargs935,26347
+void usage(char * prog, int ret)usage1086,31531
+
+sprite_manager.cpp,270
+SpriteManager::SpriteManager(const std::string& filename)SpriteManager24,934
+SpriteManager::~SpriteManager()~SpriteManager29,1023
+SpriteManager::load_resfile(const std::string& filename)load_resfile38,1192
+SpriteManager::load(const std::string& name)load85,2321
+
+defines.h,1546
+#define SUPERTUX_DEFINES_HSUPERTUX_DEFINES_H24,963
+	#define VERSION VERSION28,1022
+#define FPS FPS33,1081
+enum Direction { LEFT = 0, RIGHT = 1 };Direction35,1106
+enum Direction { LEFT = 0, RIGHT = 1 };LEFT35,1106
+enum Direction { LEFT = 0, RIGHT = 1 };RIGHT35,1106
+#define UP UP39,1192
+#define DOWN DOWN40,1205
+enum DyingType {DyingType45,1257
+  DYING_NOT = 0,DYING_NOT46,1274
+  DYING_SQUISHED = 1,DYING_SQUISHED47,1291
+  DYING_FALLING = 2DYING_FALLING48,1313
+#define SMALL SMALL53,1351
+#define BIG BIG54,1367
+#define MAX_WALK_XM MAX_WALK_XM58,1408
+#define MAX_RUN_XM MAX_RUN_XM59,1432
+#define MAX_YM MAX_YM60,1455
+#define MAX_JUMP_TIME MAX_JUMP_TIME61,1475
+#define MAX_LIVES MAX_LIVES62,1501
+#define WALK_SPEED WALK_SPEED64,1523
+#define RUN_SPEED RUN_SPEED65,1546
+#define JUMP_SPEED JUMP_SPEED66,1568
+#define START_LIVES START_LIVES70,1624
+#define MAX_BULLETS MAX_BULLETS72,1647
+#define YM_FOR_JUMP YM_FOR_JUMP74,1670
+#define WALK_ACCELERATION_X WALK_ACCELERATION_X75,1694
+#define RUN_ACCELERATION_X RUN_ACCELERATION_X76,1727
+#define KILL_BOUNCE_YM KILL_BOUNCE_YM77,1759
+#define SKID_XM SKID_XM79,1787
+#define SKID_TIME SKID_TIME80,1807
+#define OFFSCREEN_DISTANCE OFFSCREEN_DISTANCE84,1855
+#define LEVEL_WIDTH LEVEL_WIDTH86,1887
+#define KICKING_TIME KICKING_TIME90,1945
+#define SCROLL_SPEED_CREDITS SCROLL_SPEED_CREDITS94,1999
+#define SCROLL_SPEED_MESSAGE SCROLL_SPEED_MESSAGE95,2032
+        #define DEBUG_MSG(DEBUG_MSG100,2096
+       #define DEBUG_MSG(DEBUG_MSG104,2196
+
+tile.h,1586
+#define TILE_HTILE_H22,874
+class TileTile35,1042
+  int id;id41,1085
+  std::vector<Surface*> images;images43,1096
+  std::vector<Surface*> editor_images;editor_images44,1128
+  std::vector<std::string>  filenames;filenames46,1170
+  std::vector<std::string> editor_filenames;editor_filenames47,1209
+  bool solid;solid50,1307
+  bool brick;brick53,1381
+  bool ice;ice56,1414
+  bool water;water59,1442
+  bool fullbox;fullbox62,1505
+  bool distro;distro65,1553
+  bool goal;goal71,1754
+  int data;data74,1850
+  int next_tile;next_tile78,1968
+  int anim_speed;anim_speed80,1986
+struct TileGroupTileGroup87,2217
+  friend bool operator<(const TileGroup& lhs, const TileGroup& rhs)operator <89,2236
+  friend bool operator>(const TileGroup& lhs, const TileGroup& rhs)operator >91,2339
+  std::string name;name94,2443
+  std::vector<int> tiles;tiles95,2463
+class TileManagerTileManager98,2493
+  std::vector<Tile*> tiles;tiles104,2561
+  static TileManager* instance_ ;instance_105,2589
+  static std::set<TileGroup>* tilegroups_;tilegroups_106,2623
+  std::string current_tileset;current_tileset109,2710
+  static TileManager* instance() { return instance_ ? instance_ : instance_ = new TileManager(); }instance112,2753
+  static void destroy_instance() { delete instance_; instance_ = 0; }destroy_instance113,2852
+  static std::set<TileGroup>* tilegroups() { if(!instance_) { instance_ = new TileManager(); } return tilegroups_ ? tilegroups_ : tilegroups_ = new std::set<TileGroup>; }tilegroups115,2925
+  Tile* get(unsigned int id) {get116,3096
+
+type.cpp,636
+void string_list_init(string_list_type* pstring_list)string_list_init31,1043
+char* string_list_active(string_list_type* pstring_list)string_list_active38,1196
+void string_list_add_item(string_list_type* pstring_list,const  char* str)string_list_add_item49,1419
+void string_list_copy(string_list_type* pstring_list, string_list_type pstring_list_orig)string_list_copy61,1874
+int string_list_find(string_list_type* pstring_list,const  char* str)string_list_find69,2129
+void string_list_sort(string_list_type* pstring_list)string_list_sort82,2374
+void string_list_free(string_list_type* pstring_list)string_list_free112,3029
+
+scene.h,612
+#define SUPERTUX_SCENE_HSUPERTUX_SCENE_H21,899
+#define FRAME_RATE FRAME_RATE26,966
+struct PlayerStatusPlayerStatus29,1037
+  int  score;score31,1059
+  int  distros;distros32,1073
+  int  lives;lives33,1089
+  enum BonusType { NO_BONUS, GROWUP_BONUS, FLOWER_BONUS };BonusType34,1103
+  enum BonusType { NO_BONUS, GROWUP_BONUS, FLOWER_BONUS };NO_BONUS34,1103
+  enum BonusType { NO_BONUS, GROWUP_BONUS, FLOWER_BONUS };GROWUP_BONUS34,1103
+  enum BonusType { NO_BONUS, GROWUP_BONUS, FLOWER_BONUS };FLOWER_BONUS34,1103
+  BonusType bonus;bonus35,1162
+  int  score_multiplier;score_multiplier37,1182
+
+sprite.cpp,495
+Sprite::Sprite(lisp_object_t* cur)Sprite26,952
+Sprite::~Sprite()~Sprite51,1615
+Sprite::init_defaults()init_defaults59,1750
+Sprite::update(float /*delta*/)update69,1871
+Sprite::draw(float x, float y)draw76,1985
+Sprite::draw_part(float sx, float sy, float x, float y, float w, float h)draw_part86,2184
+Sprite::reset()reset96,2445
+Sprite::get_current_frame() constget_current_frame102,2482
+Sprite::get_width() constget_width109,2654
+Sprite::get_height() constget_height115,2732
+
+badguy.cpp,3581
+Sprite* img_mriceblock_flat_left;img_mriceblock_flat_left36,1218
+Sprite* img_mriceblock_flat_right;img_mriceblock_flat_right37,1252
+Sprite* img_mriceblock_falling_left;img_mriceblock_falling_left38,1287
+Sprite* img_mriceblock_falling_right;img_mriceblock_falling_right39,1324
+Sprite* img_mriceblock_left;img_mriceblock_left40,1362
+Sprite* img_mriceblock_right;img_mriceblock_right41,1391
+Sprite* img_jumpy_left_up;img_jumpy_left_up42,1421
+Sprite* img_jumpy_left_down;img_jumpy_left_down43,1448
+Sprite* img_jumpy_left_middle;img_jumpy_left_middle44,1477
+Sprite* img_mrbomb_left;img_mrbomb_left45,1508
+Sprite* img_mrbomb_right;img_mrbomb_right46,1533
+Sprite* img_mrbomb_ticking_left;img_mrbomb_ticking_left47,1559
+Sprite* img_mrbomb_ticking_right;img_mrbomb_ticking_right48,1592
+Sprite* img_mrbomb_explosion;img_mrbomb_explosion49,1626
+Sprite* img_stalactite;img_stalactite50,1656
+Sprite* img_stalactite_broken;img_stalactite_broken51,1680
+Sprite* img_flame;img_flame52,1711
+Sprite* img_fish;img_fish53,1730
+Sprite* img_fish_down;img_fish_down54,1748
+Sprite* img_bouncingsnowball_left;img_bouncingsnowball_left55,1771
+Sprite* img_bouncingsnowball_right;img_bouncingsnowball_right56,1806
+Sprite* img_bouncingsnowball_squished;img_bouncingsnowball_squished57,1842
+Sprite* img_flyingsnowball;img_flyingsnowball58,1881
+Sprite* img_flyingsnowball_squished;img_flyingsnowball_squished59,1909
+Sprite* img_spiky_left;img_spiky_left60,1946
+Sprite* img_spiky_right;img_spiky_right61,1970
+Sprite* img_snowball_left;img_snowball_left62,1995
+Sprite* img_snowball_right;img_snowball_right63,2022
+Sprite* img_snowball_squished_left;img_snowball_squished_left64,2050
+Sprite* img_snowball_squished_right;img_snowball_squished_right65,2086
+#define BADGUY_WALK_SPEED BADGUY_WALK_SPEED67,2124
+BadGuyKind  badguykind_from_string(const std::string& str)badguykind_from_string69,2155
+std::string badguykind_to_string(BadGuyKind kind)badguykind_to_string98,3007
+BadGuy::BadGuy(float x, float y, BadGuyKind kind_, bool stay_on_platform_)BadGuy137,3743
+BadGuy::action_mriceblock(double frame_ratio)action_mriceblock206,6093
+BadGuy::check_horizontal_bump(bool checkcliff)check_horizontal_bump286,8300
+BadGuy::fall()fall330,9727
+BadGuy::remove_me()remove_me377,10964
+BadGuy::action_jumpy(double frame_ratio)action_jumpy383,11014
+BadGuy::action_mrbomb(double frame_ratio)action_mrbomb426,11991
+BadGuy::action_bomb(double frame_ratio)action_bomb439,12239
+BadGuy::action_stalactite(double frame_ratio)action_stalactite476,13301
+BadGuy::action_flame(double frame_ratio)action_flame518,14434
+BadGuy::action_fish(double frame_ratio)action_fish529,14718
+BadGuy::action_bouncingsnowball(double frame_ratio)action_bouncingsnowball562,15581
+BadGuy::action_flyingsnowball(double frame_ratio)action_flyingsnowball596,16291
+BadGuy::action_spiky(double frame_ratio)action_spiky636,17320
+BadGuy::action_snowball(double frame_ratio)action_snowball657,17784
+BadGuy::action(double frame_ratio)action670,18029
+BadGuy::draw()draw743,19354
+BadGuy::set_sprite(Sprite* left, Sprite* right) set_sprite762,19801
+BadGuy::bump()bump796,20729
+BadGuy::squish_me(Player* player)squish_me808,20937
+BadGuy::squish(Player* player)squish823,21312
+BadGuy::kill_me(int score)kill_me906,23665
+void BadGuy::explode(BadGuy *badguy)explode931,24316
+BadGuy::collision(void *p_c_object, int c_object, CollisionType type)collision938,24457
+void load_badguy_gfx()load_badguy_gfx1081,28001
+void free_badguy_gfx()free_badguy_gfx1115,30049
+
+collision.h,399
+#define SUPERTUX_COLLISION_HSUPERTUX_COLLISION_H22,893
+  CO_BULLET,CO_BULLET32,999
+  CO_BADGUY,CO_BADGUY33,1012
+  CO_PLAYERCO_PLAYER34,1025
+enum CollisionType {CollisionType37,1041
+    COLLISION_NORMAL,COLLISION_NORMAL38,1062
+    COLLISION_BUMP,COLLISION_BUMP39,1084
+    COLLISION_SQUISHCOLLISION_SQUISH40,1104
+typedef void* (*tiletestfunction)(Tile* tile);tiletestfunction58,1705
+
+collision.cpp,925
+bool rectcollision(const base_type& one, const base_type& two)rectcollision29,1007
+bool rectcollision_offset(const base_type& one, const base_type& two, float off_x, float off_y)rectcollision_offset37,1254
+bool collision_object_map(const base_type& base)collision_object_map45,1566
+void* collision_func(const base_type& base, tiletestfunction function)collision_func70,2222
+static void* test_goal_tile_function(Tile* tile)test_goal_tile_function92,2829
+Tile* collision_goal(const base_type& base)collision_goal99,2937
+void collision_swept_object_map(base_type* old, base_type* current)collision_swept_object_map104,3050
+Tile* gettile(float x, float y)gettile243,6366
+bool issolid(float x, float y)issolid248,6490
+bool isbrick(float x, float y)isbrick254,6585
+bool isice(float x, float y)isice260,6680
+bool isfullbox(float x, float y)isfullbox266,6771
+bool isdistro(float x, float y)isdistro272,6870
+
+menu.cpp,2382
+#define FLICK_CURSOR_TIME FLICK_CURSOR_TIME42,1231
+Surface* checkbox;checkbox44,1262
+Surface* checkbox_checked;checkbox_checked45,1281
+Surface* back;back46,1308
+Surface* arrow_left;arrow_left47,1323
+Surface* arrow_right;arrow_right48,1344
+Menu* main_menu      = 0;main_menu50,1367
+Menu* game_menu      = 0;game_menu51,1393
+Menu* worldmap_menu  = 0;worldmap_menu52,1419
+Menu* options_menu   = 0;options_menu53,1445
+Menu* options_keys_menu     = 0;options_keys_menu54,1471
+Menu* options_joystick_menu = 0;options_joystick_menu55,1504
+Menu* highscore_menu = 0;highscore_menu56,1537
+Menu* load_game_menu = 0;load_game_menu57,1563
+Menu* save_game_menu = 0;save_game_menu58,1589
+Menu* contrib_menu   = 0;contrib_menu59,1615
+Menu* contrib_subset_menu   = 0;contrib_subset_menu60,1641
+std::vector<Menu*> Menu::last_menus;last_menus62,1675
+Menu* Menu::current_ = 0;current_63,1712
+bool confirm_dialog(std::string text)confirm_dialog66,1807
+Menu::push_current(Menu* pmenu)push_current120,2731
+Menu::pop_current()pop_current130,2877
+Menu::set_current(Menu* menu)set_current146,3070
+MenuItem::create(MenuItemKind kind_, const char *text_, int init_toggle_, Menu* target_menu_, int id, int* int_p_)create158,3241
+MenuItem::change_text(const  char *text_)change_text194,4178
+MenuItem::change_input(const  char *text_)change_input205,4352
+std::string MenuItem::get_input_with_symbol(bool active_item)get_input_with_symbol215,4523
+void Menu::get_controlfield_key_into_input(MenuItem *item)get_controlfield_key_into_input243,5056
+Menu::~Menu()~Menu294,6126
+Menu::Menu()Menu308,6330
+void Menu::set_pos(int x, int y, float rw, float rh)set_pos322,6569
+Menu::additem(MenuItemKind kind_, const std::string& text_, int toggle_, Menu* menu_, int id, int* int_p)additem329,6725
+Menu::additem(MenuItem* pmenu_item)additem336,6947
+Menu::clear()clear343,7045
+Menu::action()action350,7124
+Menu::check()check486,10609
+Menu::draw_item(int index, // Position of the current item in the menudraw_item495,10707
+int Menu::get_width() constget_width651,15408
+int Menu::get_height() constget_height670,15903
+Menu::draw()draw677,15998
+Menu::get_item_by_id(int id)get_item_by_id695,16376
+int Menu::get_active_item_id()get_active_item_id708,16600
+Menu::isToggled(int id)isToggled714,16672
+Menu::event(SDL_Event& event)event721,16770
+
+screen.h,417
+#define SUPERTUX_SCREEN_HSUPERTUX_SCREEN_H21,905
+#define NO_UPDATE NO_UPDATE29,1019
+#define UPDATE UPDATE30,1043
+#define USE_ALPHA USE_ALPHA31,1063
+#define IGNORE_ALPHA IGNORE_ALPHA32,1083
+struct ColorColor34,1107
+  Color() Color36,1122
+  Color(int red_, int green_, int blue_)Color40,1173
+  int red, green, blue;red44,1264
+  int red, green, blue;green44,1264
+  int red, green, blue;blue44,1264
+
+physic.cpp,945
+Physic::Physic()Physic30,1001
+Physic::~Physic()~Physic35,1079
+Physic::reset()reset40,1107
+Physic::set_velocity_x(float nvx)set_velocity_x47,1188
+Physic::set_velocity_y(float nvy)set_velocity_y53,1244
+Physic::set_velocity(float nvx, float nvy)set_velocity59,1301
+void Physic::inverse_velocity_x()inverse_velocity_x65,1374
+void Physic::inverse_velocity_y()inverse_velocity_y70,1423
+Physic::get_velocity_x()get_velocity_x76,1478
+Physic::get_velocity_y()get_velocity_y82,1529
+Physic::set_acceleration_x(float nax)set_acceleration_x88,1580
+Physic::set_acceleration_y(float nay)set_acceleration_y94,1640
+Physic::set_acceleration(float nax, float nay)set_acceleration100,1701
+Physic::get_acceleration_x()get_acceleration_x107,1788
+Physic::get_acceleration_y()get_acceleration_y113,1843
+Physic::enable_gravity(bool enable_gravity)enable_gravity119,1898
+Physic::apply(float frame_ratio, float &x, float &y)apply125,1988
+
+scene.cpp,403
+PlayerStatus player_status;player_status24,936
+PlayerStatus::PlayerStatus()PlayerStatus26,965
+void PlayerStatus::reset()reset35,1098
+std::string bonus_to_string(PlayerStatus::BonusType b)bonus_to_string44,1225
+PlayerStatus::BonusType string_to_bonus(const std::string& str)string_to_bonus59,1521
+float scroll_x;scroll_x72,1863
+unsigned int global_frame_counter;global_frame_counter74,1880
+
+sound.h,1244
+#define SUPERTUX_SOUND_HSUPERTUX_SOUND_H22,972
+enum Music_Type {Music_Type32,1355
+  NO_MUSIC,NO_MUSIC33,1373
+  LEVEL_MUSIC,LEVEL_MUSIC34,1385
+  HURRYUP_MUSIC,HURRYUP_MUSIC35,1400
+  HERRING_MUSICHERRING_MUSIC36,1417
+enum Sound_Speaker {Sound_Speaker40,1475
+  SOUND_LEFT_SPEAKER = 0,SOUND_LEFT_SPEAKER41,1496
+  SOUND_RIGHT_SPEAKER = 1,SOUND_RIGHT_SPEAKER42,1522
+  SOUND_RESERVED_CHANNELS = 2, // 2 channels reserved for left/right speakerSOUND_RESERVED_CHANNELS43,1549
+  SOUND_CENTER_SPEAKER = -1SOUND_CENTER_SPEAKER44,1626
+  SND_JUMP,SND_JUMP49,1684
+  SND_BIGJUMP,SND_BIGJUMP50,1696
+  SND_SKID,SND_SKID51,1711
+  SND_DISTRO,SND_DISTRO52,1723
+  SND_HERRING,SND_HERRING53,1737
+  SND_BRICK,SND_BRICK54,1752
+  SND_HURT,SND_HURT55,1765
+  SND_SQUISH,SND_SQUISH56,1777
+  SND_FALL,SND_FALL57,1791
+  SND_RICOCHET,SND_RICOCHET58,1803
+  SND_BUMP_UPGRADE,SND_BUMP_UPGRADE59,1819
+  SND_UPGRADE,SND_UPGRADE60,1839
+  SND_EXCELLENT,SND_EXCELLENT61,1854
+  SND_COFFEE,SND_COFFEE62,1871
+  SND_SHOOT,SND_SHOOT63,1885
+  SND_LIFEUP,SND_LIFEUP64,1898
+  SND_STOMP,SND_STOMP65,1912
+  SND_KICK,SND_KICK66,1925
+  SND_EXPLODE,SND_EXPLODE67,1937
+  SND_TELEPORT,SND_TELEPORT68,1952
+  NUM_SOUNDSNUM_SOUNDS69,1968
+
+player.cpp,1471
+#define AUTOSCROLL_DEAD_INTERVAL AUTOSCROLL_DEAD_INTERVAL30,1058
+Surface* tux_life;tux_life32,1096
+Sprite* smalltux_gameover;smalltux_gameover34,1116
+Sprite* smalltux_star;smalltux_star35,1143
+Sprite* largetux_star;largetux_star36,1166
+PlayerSprite smalltux;smalltux38,1190
+PlayerSprite largetux;largetux39,1213
+PlayerSprite firetux;firetux40,1236
+PlayerKeymap keymap;keymap42,1259
+PlayerKeymap::PlayerKeymap()PlayerKeymap44,1281
+void player_input_init(player_input_type* pplayer_input)player_input_init53,1458
+Player::init()init65,1726
+Player::key_event(SDLKey key, int state)key_event105,2369
+Player::level_begin()level_begin139,2927
+Player::action(double frame_ratio)action161,3257
+Player::on_ground()on_ground275,6223
+Player::under_solid()under_solid283,6448
+Player::handle_horizontal_input()handle_horizontal_input291,6633
+Player::handle_vertical_input()handle_vertical_input377,8952
+Player::handle_input()handle_input423,10104
+Player::grow()grow487,11686
+Player::jump_of_badguy(BadGuy* badguy)jump_of_badguy500,11830
+Player::grabdistros()grabdistros510,12008
+Player::draw()draw541,12979
+Player::collision(void* p_c_object, int c_object)collision633,16041
+Player::kill(HurtMode mode)kill697,17788
+Player::is_dying()is_dying729,18394
+bool Player::is_dead()is_dead735,18460
+Player::remove_powerups()remove_powerups745,18685
+Player::check_bounds(bool back_scrolling, bool hor_autoscroll)check_bounds753,18779

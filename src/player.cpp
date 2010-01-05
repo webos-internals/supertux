@@ -43,11 +43,19 @@ PlayerKeymap keymap;
 
 PlayerKeymap::PlayerKeymap()
 {
+#if 0
   keymap.jump  = SDLK_SPACE;
   keymap.duck  = SDLK_DOWN;
   keymap.left  = SDLK_LEFT;
   keymap.right = SDLK_RIGHT;
   keymap.fire  = SDLK_LCTRL;
+#else
+  keymap.jump  = SDLK_SPACE;
+  keymap.duck  = ALT_DUCK;
+  keymap.left  = ALT_LEFT;
+  keymap.right = ALT_RIGHT;
+  keymap.fire  = ALT_FIRE;
+#endif
 }
 
 void player_input_init(player_input_type* pplayer_input)
@@ -114,7 +122,11 @@ Player::key_event(SDLKey key, int state)
       input.left = state;
       return true;
     }
+#if 0
   else if(key == keymap.jump)
+#else
+  else if(key == keymap.jump || key == ALT_JUMP)
+#endif
     {
       input.up = state;
       return true;
