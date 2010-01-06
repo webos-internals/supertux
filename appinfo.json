@@ -1,0 +1,15 @@
+{
+       "title": "SuperTux",
+       "id": "org.webosinternals.supertux",
+       "version": "1.0.0",
+       "release_date": "5-Jan-2010",
+       "vendor": "WebOS Internals",
+       "vendor_email": "support@webos-internals.org",
+       "vendor_url": "http://www.webos-internals.org/wiki/Application:SuperTux",
+       "type": "web",
+       "main": "index.html",
+       "icon": "icon.png",
+       "removable": "true",
+       "noWindow": true,
+       "noDeprecatedStyles": true
+}
