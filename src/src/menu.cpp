@@ -819,7 +819,6 @@ Menu::event(SDL_Event& event)
   case  SDL_JOYAXISMOTION:
     if(event.jaxis.axis == joystick_keymap.y_axis)
     {
-      printf("y axis %d\n", event.jaxis.value);
 #if 0
       if (event.jaxis.value > 1024)
         menuaction = MENU_ACTION_DOWN;
