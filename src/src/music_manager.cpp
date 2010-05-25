@@ -60,8 +60,11 @@ MusicManager::exists_music(const std::string& file)
   }
   
   Mix_Music* song = Mix_LoadMUS(file.c_str());
+  /* FIXME: Music file won't load in 1.4.x ... */
+#if 0
   if(song == 0)
     return false;
+#endif
 
   // insert into music list
   std::pair<std::map<std::string, MusicResource>::iterator, bool> result = 
