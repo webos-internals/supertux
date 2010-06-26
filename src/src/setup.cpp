@@ -761,7 +761,7 @@ void st_joystick_setup(void)
 
   use_joystick = true;
 
-  if (SDL_Init(SDL_INIT_JOYSTICK) < 0)
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0)
     {
       fprintf(stderr, "Warning: I could not initialize joystick!\n"
               "The Simple DirectMedia error that occured was:\n"
@@ -822,7 +822,7 @@ void st_audio_setup(void)
 
   if (audio_device)
     {
-      if (SDL_Init(SDL_INIT_AUDIO) < 0)
+      if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
         {
           /* only print out message if sound or music
              was not disabled at command-line
