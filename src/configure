@@ -4969,7 +4969,7 @@ else
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "SDL.h"
+#include "SDL_opengles.h"
 
 char*
 my_strdup (char *str)
