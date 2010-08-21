@@ -2,7 +2,9 @@ OBJECTS = badguy.o bitmask.o button.o collision.o configfile.o gameloop.o gameob
 
 STATIC_LIBS=zlib/libz.a
 
-CXXFLAGS=-g -O2 \
+#PXI_CXXFLAGS=mcpu=arm1136jf-s -mfpu=vfp -mfloat-abi=softfp
+CXXFLAGS=-mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp \
+				 -g -O2 \
 				 -DNOOPENGL \
 				 -D_GNU_SOURCE=1 \
 				 -DVERSION=\"0.1.3\" \

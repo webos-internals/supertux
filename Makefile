@@ -16,6 +16,7 @@ package-pre: build-pre
 build-pre:
 	${MAKE} -C src
 	cp src/supertux binaries/armv7/supertux
+	${CROSS_COMPILE}strip -d binaries/armv7/supertux
 
 install-usb:
 	palm-install ${APP_ID}_${VERSION}_all.ipk
