@@ -325,7 +325,6 @@ Menu::Menu()
 
 void Menu::set_pos(int x, int y, float rw, float rh)
 {
-  printf("set pos\n");
   pos_x = x + (int)((float)get_width() * rw);
   pos_y = y + (int)((float)get_height() * rh);
 }
@@ -760,8 +759,6 @@ Menu::event(SDL_Event& event)
       return;
     }
 
-
-    printf("key = %d\n", key);
     switch(key)
     {
     case ALT_UP:		/* Menu Up */

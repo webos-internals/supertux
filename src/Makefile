@@ -6,7 +6,7 @@ CXXFLAGS=-g -O2 \
 				 -DNOOPENGL \
 				 -D_GNU_SOURCE=1 \
 				 -DVERSION=\"0.1.3\" \
-				 -DDATA_PREFIX=\"/var/eric/data/supertux\" \
+				 -DDATA_PREFIX=\"/media/internal/share/supertux\" \
 				 -I/opt/PalmPDK/include/SDL \
 				 -Izlib
 

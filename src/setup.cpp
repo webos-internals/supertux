@@ -34,9 +34,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
-#ifndef WIN32
 #include <libgen.h>
-#endif
 #include <ctype.h>
 
 #include "defines.h"
@@ -54,13 +52,6 @@
 #include "music_manager.h"
 
 #include "player.h"
-
-#ifdef WIN32
-#define mkdir(dir, mode)    mkdir(dir)
-// on win32 we typically don't want LFS paths
-#undef DATA_PREFIX
-#define DATA_PREFIX "./data/"
-#endif
 
 /* Screen proprities: */
 /* Don't use this to test for the actual screen sizes. Use screen->w/h instead! */
@@ -340,7 +331,6 @@ void st_directory_setup(void)
   // User has not that a datadir, so we try some magic
   if (datadir.empty())
     {
-#ifndef WIN32
       // Detect datadir
       char exe_file[PATH_MAX];
       if (readlink("/proc/self/exe", exe_file, PATH_MAX) < 0)
@@ -352,21 +342,12 @@ void st_directory_setup(void)
         {
           std::string exedir = std::string(dirname(exe_file)) + "/";
           
-          datadir = exedir + "../data"; // SuperTux run from source dir
-          if (access(datadir.c_str(), F_OK) != 0)
-            {
-              datadir = exedir + "../share/supertux"; // SuperTux run from PATH
-              if (access(datadir.c_str(), F_OK) != 0) 
-                { // If all fails, fall back to compiled path
-                  datadir = DATA_PREFIX; 
-                }
-            }
+          datadir = exedir + "data"; // SuperTux run from source dir
+          if (access(datadir.c_str(), F_OK) != 0) { 
+            datadir = DATA_PREFIX; 
+          } 
         }
-#else
-  datadir = DATA_PREFIX;
-#endif
     }
-  printf("Datadir: %s\n", datadir.c_str());
 }
 
 /* Create and setup menus. */
