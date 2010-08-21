@@ -113,10 +113,8 @@ void saveconfig (void)
 {
   /* write settings to config file */
 
-  printf("save config\n");
   FILE * config = opendata(config_filename, "w");
 
-  printf("use joystick ? %d\n", use_joystick);
   if(config)
     {
       fprintf(config, "(supertux-config\n");
