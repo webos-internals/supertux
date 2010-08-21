@@ -1,5 +1,15 @@
 OBJECTS = badguy.o bitmask.o button.o collision.o configfile.o gameloop.o gameobjs.o globals.o high_scores.o intro.o level.o leveleditor.o lispreader.o menu.o mousecursor.o music_manager.o musicref.o particlesystem.o physic.o player.o resources.o scene.o screen.o setup.o sound.o special.o sprite.o sprite_manager.o supertux.o text.o texture.o tile.o timer.o title.o type.o world.o worldmap.o
 
-CFLAGS=DPACKAGE_NAME=\"SuperTux\" -DPACKAGE_TARNAME=\"supertux\" -DPACKAGE_VERSION=\"0.1.3\" -DPACKAGE_STRING=\"SuperTux\ 0.1.3\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"supertux\" -DVERSION=\"0.1.3\" -DHAVE_DIRENT_H=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_UNISTD_H=1 -DHAVE_LIBSDL_MIXER=1 -DHAVE_LIBSDL_IMAGE=1 -DHAVE_PTHREAD=1 -DHAVE_LIBZ=1 -DHAVE_MKDIR=1 -DHAVE_STRDUP=1 -DHAVE_STRSTR=1 -I.     -g -O2 -I/usr/local/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -DNOOPENGL -DDATA_PREFIX='"/usr/local/share/supertux"'
+STATIC_LIBS=zlib/libz.a
+
+CXXFLAGS=-DPACKAGE_NAME=\"SuperTux\" -DPACKAGE_TARNAME=\"supertux\" -DPACKAGE_VERSION=\"0.1.3\" -DPACKAGE_STRING=\"SuperTux\ 0.1.3\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"supertux\" -DVERSION=\"0.1.3\" -DHAVE_DIRENT_H=1 -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_UNISTD_H=1 -DHAVE_LIBSDL_MIXER=1 -DHAVE_LIBSDL_IMAGE=1 -DHAVE_PTHREAD=1 -DHAVE_LIBZ=1 -DHAVE_MKDIR=1 -DHAVE_STRDUP=1 -DHAVE_STRSTR=1 -I.     -g -O2 -D_GNU_SOURCE=1 -D_REENTRANT -DNOOPENGL -DDATA_PREFIX='"/var/eric/data/supertux"' \
+				 -I/opt/eric/include/SDL \
+				 -Izlib
+
+LDFLAGS=-g -O2 -I/usr/local/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT -DNOOPENGL -DDATA_PREFIX='"/usr/local/share/supertux"' -lSDL_image -lSDL_mixer -L/opt/eric/lib -Wl,--allow-shlib-undefined -lSDL -lpthread
 
 supertux: ${OBJECTS}
+	${CXX} -o $@ ${OBJECTS} ${STATIC_LIBS} ${LDFLAGS}
+
+clean:
+	rm -f supertux ${OBJECTS}
