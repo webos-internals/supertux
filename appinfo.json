@@ -7,9 +7,9 @@
        "vendor_email": "support@webos-internals.org",
        "vendor_url": "http://www.webos-internals.org/wiki/Application:SuperTux",
        "type": "game",
-       "main": "bin/supertux",
+       "main": "supertux",
        "icon": "icon.png",
        "removable": "true",
        "noWindow": true,
-       "noDeprecatedStyles": true
+       "requiredMemory": 30
 }
