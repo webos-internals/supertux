@@ -1,6 +1,5 @@
 -SuperTux for webOS
 
-	---------------------------------------
 	This is a port of the classic 
 	opensource jump'n run game SuperTux.
 
