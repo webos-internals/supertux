@@ -34,8 +34,10 @@
 #include "texture.h"
 #include "tile.h"
 
+#include <PDL.h>
+
 void splash() {
-  Surface *surface = new Surface(datadir + "/images/background/oiltux.jpg", IGNORE_ALPHA);
+  Surface *surface = new Surface(datadir + "/images/background/webos-internals.png", IGNORE_ALPHA);
   SDL_Event event;
 
   while(SDL_PollEvent(&event));
@@ -45,6 +47,8 @@ void splash() {
 
 int main(int argc, char * argv[])
 {
+  PDL_SetOrientation(PDL_ORIENTATION_270);
+
   st_directory_setup();
   parseargs(argc, argv);
   

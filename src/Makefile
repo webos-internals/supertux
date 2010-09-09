@@ -9,10 +9,11 @@ CXXFLAGS=-mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp \
 				 -D_GNU_SOURCE=1 \
 				 -DVERSION=\"0.1.3\" \
 				 -DDATA_PREFIX=\"/media/internal/share/supertux\" \
+				 -I/opt/PalmPDK/include \
 				 -I/opt/PalmPDK/include/SDL \
 				 -Izlib
 
-LDFLAGS=-lSDL -lSDL_image -lSDL_mixer -L/opt/PalmPDK/device/lib -Wl,--allow-shlib-undefined
+LDFLAGS=-lpdl -lSDL -lSDL_image -lSDL_mixer -L/opt/PalmPDK/device/lib -Wl,--allow-shlib-undefined
 
 supertux: ${OBJECTS}
 	${CXX} -o $@ ${OBJECTS} ${STATIC_LIBS} ${LDFLAGS}

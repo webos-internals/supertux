@@ -19,7 +19,8 @@ build-pre:
 	${CROSS_COMPILE}strip -d binaries/armv7/supertux
 
 install-usb:
-	palm-install ${APP_ID}_${VERSION}_all.ipk
+	novacom put file:///media/cryptofs/apps/usr/palm/applications/org.webosinternals.supertux/supertux < src/supertux
+	#palm-install ${APP_ID}_${VERSION}_all.ipk
 
 clean:
 	${MAKE} -C src clean
