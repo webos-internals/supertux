@@ -34,6 +34,15 @@
 #include "texture.h"
 #include "tile.h"
 
+void splash() {
+  Surface *surface = new Surface(datadir + "/images/background/oiltux.jpg", IGNORE_ALPHA);
+  SDL_Event event;
+
+  while(SDL_PollEvent(&event));
+  surface->draw_bg();
+  flipscreen();
+}
+
 int main(int argc, char * argv[])
 {
   st_directory_setup();
@@ -41,10 +50,13 @@ int main(int argc, char * argv[])
   
   st_audio_setup();
   st_video_setup();
+  splash();
   st_joystick_setup();
   st_general_setup();
   st_menu();
   loadshared();
+
+  display_text_file("controls.txt", "/images/background/arctis2.jpg", 2.0);
 
   if (launch_leveleditor_mode && level_startup_file)
     {

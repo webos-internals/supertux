@@ -61,6 +61,7 @@ void MouseCursor::set_mid(int x, int y)
 
 void MouseCursor::draw()
 {
+  return;
   int x,y,w,h;
   Uint8 ispressed = SDL_GetMouseState(&x,&y);
   w = cursor->w / tot_frames;

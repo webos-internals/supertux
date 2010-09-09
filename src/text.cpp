@@ -297,6 +297,7 @@ void display_text_file(const std::string& file, Surface* surface, float scroll_s
                 speed += SPEED_INC;
                 break;
               case SDLK_SPACE:
+              case ALT_RETURN:
               case SDLK_RETURN:
                 if(speed >= 0)
                   scroll += SCROLL;

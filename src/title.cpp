@@ -241,8 +241,10 @@ void title(void)
 
   GameSession session(datadir + "/levels/misc/menu.stl", 0, ST_GL_DEMO_GAME);
 
+#if 0
   clearscreen(0, 0, 0);
   updatescreen();
+#endif
 
   /* Load images: */
   bkg_title = new Surface(datadir + "/images/title/background.jpg", IGNORE_ALPHA);
@@ -330,6 +332,9 @@ void title(void)
                   // Contrib Menu
                   puts("Entering contrib menu");
                   generate_contrib_menu();
+                  break;
+                case MNID_HELP:
+                  display_text_file("controls.txt", "/images/background/arctis2.jpg", 1.0);
                   break;
                 case MNID_LEVELEDITOR:
                   leveleditor();

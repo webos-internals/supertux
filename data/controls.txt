@@ -1,0 +1,27 @@
+-SuperTux for webOS
+
+	---------------------------------------
+	This is a port of the classic 
+	opensource jump'n run game SuperTux.
+
+	The default controls use the  
+	accelerometer for movement and the 
+	gesture bar for action/jump.
+	
+	Menus may be navigated by tilting the 
+	device or simply by tapping a menu item
+	on the screen.
+	
+	Tilt the device left and right to move 
+	tux, tilt down to duck while tux is 
+	grown, and tap the gesture area to the 
+	left or right of center to jump 
+	(hold for a higher jump).  When tux 
+	has fireball powers, tap anywhere on 
+	the screen to shoot a fireball.
+
+	Tip: make sure to tap the gesture area 
+	to the left or right of center so as to 
+	not minimize the card.
+	
+	Enjoy!
